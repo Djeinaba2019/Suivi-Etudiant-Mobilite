@@ -60,7 +60,7 @@ public class EtudiantController {
 			e.setPrenom(etudiant.getPrenom());
 			e.setEmail(etudiant.getEmail());
 			e.setTelephone(etudiant.getTelephone());
-			e.setDateDeNaissence(etudiant.getDateDeNaissence());
+			e.setDateDeNaissance(etudiant.getDateDeNaissance());
 			e.setNni(etudiant.getNni());
 			e.setMatricule(etudiant.getMatricule());
 			e.setPhoto(etudiant.getPhoto());
