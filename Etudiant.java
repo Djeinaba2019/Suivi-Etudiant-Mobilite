@@ -29,11 +29,11 @@ public class Etudiant {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public Date getDateDeNaissence() {
-		return dateDeNaissence;
+	public Date getDateDeNaissance() {
+		return dateDeNaissance;
 	}
-	public void setDateDeNaissence(Date dateDeNaissence) {
-		this.dateDeNaissence = dateDeNaissence;
+	public void setDateDeNaissance(Date dateDeNaissance) {
+		this.dateDeNaissance = dateDeNaissance;
 	}
 	public String getTelephone() {
 		return telephone;
@@ -62,7 +62,7 @@ public class Etudiant {
 	private String nom;
 	private String prenom;
 	 @Temporal(TemporalType.DATE)
-	    private Date dateDeNaissence;
+	    private Date dateDeNaissance;
 	 private String telephone;
 	 private String email;
 	    private String photo;
