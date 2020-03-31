@@ -7,7 +7,7 @@ import javax.validation.constraints.PastOrPresent;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class EtudiantDto {
-	@NotBlank
+	
 	private Integer matricule;
 	public Integer getMatricule() {
 		return matricule;
