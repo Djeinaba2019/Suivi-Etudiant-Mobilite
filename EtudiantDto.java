@@ -27,11 +27,11 @@ public class EtudiantDto {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public Date getDateDeNaissence() {
-		return dateDeNaissence;
+	public Date getDateDeNaissance() {
+		return dateDeNaissance;
 	}
-	public void setDateDeNaissence(Date dateDeNaissence) {
-		this.dateDeNaissence = dateDeNaissence;
+	public void setDateDeNaissance(Date dateDeNaissance) {
+		this.dateDeNaissance = dateDeNaissance;
 	}
 	public String getTelephone() {
 		return telephone;
@@ -63,7 +63,7 @@ public class EtudiantDto {
 	private String prenom;
 	@PastOrPresent
 	@JsonFormat(pattern="dd-MM-yyyy")
-	    private Date dateDeNaissence;
+	    private Date dateDeNaissance;
 	 private String telephone;
 	 @NotBlank
 	 private String email;
