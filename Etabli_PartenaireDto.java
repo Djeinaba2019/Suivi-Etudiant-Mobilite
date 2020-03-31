@@ -42,7 +42,6 @@ public class Etabli_PartenaireDto {
 	private String Pays ;
 	@NotBlank
 	private String type_Accords;
-	@NotBlank
 	private int quotas;
 	@NotBlank
 	private String email;
