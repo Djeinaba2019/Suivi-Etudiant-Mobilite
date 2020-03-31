@@ -19,12 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import mr.esp.springdemo.dto.Etabli_PartenaireDto;
-import mr.esp.springdemo.dto.StudentsDto;
 import mr.esp.springdemo.exception.ResourceNotFoundException;
 import mr.esp.springdemo.model.Etabli_Partenaire;
-import mr.esp.springdemo.model.Student;
 import mr.esp.springdemo.repository.Etabli_PartenaireRepository;
-import mr.esp.springdemo.repository.StudentRepository;
 
 
 @RestController
@@ -48,7 +45,7 @@ public class Etabli_PartenaireController {
 		}
 		
 		@DeleteMapping(path="/{id}")
-		public Etabli_Partenaire deleteStudent(@PathVariable Integer id) {
+		public Etabli_Partenaire deleteEtablissement(@PathVariable Integer id) {
 			Etabli_Partenaire p = etabli_PartenaireRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Etablissement", "id", id));
 			etabli_PartenaireRepository.delete(p);
 			return p;
