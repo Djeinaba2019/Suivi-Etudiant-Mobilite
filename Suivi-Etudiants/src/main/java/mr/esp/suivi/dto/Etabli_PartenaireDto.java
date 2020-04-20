@@ -1,10 +1,34 @@
 package mr.esp.suivi.dto;
 
 
+import java.util.Date;
+
 import javax.validation.constraints.NotBlank;
+
+import com.sun.istack.NotNull;
 
 
 public class Etabli_PartenaireDto {
+	
+	@NotBlank
+	private String nom;
+	@NotBlank
+	private String ville;
+	@NotBlank
+	private String Pays ;
+	private String type_Accords;
+	@NotNull
+	private int quotas;
+	@NotBlank
+	private String email;
+	@NotBlank
+	private String telephone;
+	@NotBlank
+	private String adresse;
+	@NotBlank
+	private String site_web;
+	@NotBlank
+	private String Specialite;
 	
 	public String getNom() {
 		return nom;
@@ -30,24 +54,14 @@ public class Etabli_PartenaireDto {
 	public void setType_Accords(String type_Accords) {
 		this.type_Accords = type_Accords;
 	}
-	@NotBlank
-	private String nom;
-	@NotBlank
-	private String ville;
-	@NotBlank
-	private String Pays ;
-	@NotBlank
-	private String type_Accords;
-	@NotBlank
-	private int quotas;
-	@NotBlank
-	private String email;
-	@NotBlank
-	private String telephone;
-	@NotBlank
-	private String adresse;
-	@NotBlank
-	private String site_web;
+	
+	public String getSpecialite() {
+		return Specialite;
+	}
+	public void setSpecialite(String specialite) {
+		Specialite = specialite;
+	}
+	
 	public int getQuotas() {
 		return quotas;
 	}

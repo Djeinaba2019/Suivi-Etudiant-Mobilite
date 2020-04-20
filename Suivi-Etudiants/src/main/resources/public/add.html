@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<<<<<<< HEAD
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="fonts/fontawesome.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+<!-- main CSS -->
+<link href="css/main.css" rel="stylesheet" media="all">
+
+
+  <title></title>
+</head>
+<body>
+<div class="Container">
+  <div class="card card-4">
+    <div class="card-body">
+          <h2 class="title">Formulaire de saisie des Ecoles Partenaires</h2>
+      <form class="form" role="form" autocomplete="off" id="EcoleForms" methode="POST">
+      <div class="alert alert-success d-none" role="alert" id="EcoleFormBanner">
+      </div>
+        <div class="row row-space">
+          <div class="col">
+            <div class="input-group">
+              <label class="label">Nom de L'etablissement</label>
+              <input class="input--style-4" type="text" id="nom">
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <label class="label">Site Web</label>
+              <input class="input--style-4" type="text" id="site_web" >
+            </div>
+          </div>
+
+
+        </div>
+        <div class="row row-space">
+          <div class="col">
+            <div class="input-group">
+              <label class="label">Pays</label>
+              <input class="input--style-4" type="text" id="Pays">
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <label class="label">Departement</label>
+              <input class="input--style-4" type="text" id="Departement">
+            </div>
+          </div>
+        </div>
+        <div class="row row-space">
+          <div class="col">
+            <div class="input-group">
+              <label class="label">Ville</label>
+              <input class="input--style-4" type="text" id="ville">
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <label class="label">Spécialité</label>
+              <input class="input--style-4" type="text" id="Specialite">
+            </div>
+          </div>
+        </div>
+        <div class="row row-space">
+          <div class="col">
+            <div class="input-group">
+              <label class="label">Nombre de Place</label>
+              <input class="input--style-4" type="text" id="quotas" >
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <label class="label">Type de Mobilité</label>
+              <input class="input--style-4" type="text" id="type_Accords">
+            </div>
+          </div>
+        </div>
+        <div class="row row-space">
+          <div class="col-6">
+            <div class="input-group">
+              <label class="label">Email-etablissement</label>
+              <input class="input--style-4" type="text" id="email">
+            </div>
+          </div>
+        </div>
+        <div class="row row-space">
+          <div class="col-6">
+            <div class="input-group">
+              <label class="label">Télephone</label>
+              <input class="input--style-4" type="text" id="telephone" >
+            </div>
+            </div>
+          </div>
+          <div class="row row-space">
+              <div class="col-6">
+                <div class="p-t-15">
+                    <button class="btn btn--radius-2 btn--green" id="doCreateButton">Enregistrer</button>
+                </div>
+              </div>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+  </div>
+  
+
+=======
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+
+  <title>Hello, ESP!</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Hello, ESP!</h1>
+    <form class="form" role="form" autocomplete="off" id="studentForm">
+      <div class="alert alert-success d-none" role="alert" id="studentFormBanner">
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="card card-outline-secondary">
+            <div class="card-header text-white bg-primary">
+              <h3 class="mb-0">Ajouter un &eacute;tudiant</h3>
+            </div>
+            <div class="card-body">
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label form-control-label">
+                  Pr&eacute;nom
+                </label>
+                <div class="col-sm-8">
+                  <input class="form-control" type="text" value="Mohamed" id="name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label form-control-label">
+                  Nom
+                </label>
+                <div class="col-sm-8">
+                  <input class="form-control" type="text" value="Ahmed" id="surname">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-4 col-form-label form-control-label">
+                  Date de Naissance
+                </label>
+                <div class="col-sm-4">
+                  <input class="form-control" type="text" value="jj-mm-aaaa" id="dateOfBirth">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 center-block">
+     
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+      		<button class="btn btn-primary float-right mt-4" id="doCreateButton">Submit</button>
+      	</div>
+      </div>
+    </form>
+  </div>
+>>>>>>> 5cce158688d76488fc9445f95a81aa9fbdbdc5af
+  <!-- JavaScript -->
+  <!-- jQuery , Popper, Bootstrap -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

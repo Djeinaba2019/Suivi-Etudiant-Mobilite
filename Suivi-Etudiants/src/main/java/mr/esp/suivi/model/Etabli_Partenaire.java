@@ -32,10 +32,27 @@ public class Etabli_Partenaire {
 	private String Pays ;
 
 	private String type_Accords;
+	
+	public String getSpecialite() {
+		return Specialite;
+	}
 
+	public void setSpecialite(String specialite) {
+		Specialite = specialite;
+	}
 
-	@Temporal(TemporalType.DATE)
-	private Date date_Accords;
+	/*public Date getDate_Accords() {
+		return date_Accords;
+	}
+
+	public void setDate_Accords(Date date_Accords) {
+		this.date_Accords = date_Accords;
+	}*/
+
+	private String Specialite;
+
+	//@Temporal(TemporalType.DATE)
+	//private Date date_Accords;
 
 	public Integer getId() {
 		return id;

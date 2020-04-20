@@ -52,15 +52,15 @@ public class Etabli_PartenaireController {
 			
 			Etabli_Partenaire e = new Etabli_Partenaire();
 			e.setNom(etablissement.getNom());
-			e.setEmail(etablissement.getEmail());
-			e.setAdresse(etablissement.getAdresse());
 			e.setQuotas(etablissement.getQuotas());
-			e.setSite_web(etablissement.getSite_web());
+			e.setEmail(etablissement.getEmail());
 			e.setTelephone(etablissement.getTelephone());
-			e.setPays(etablissement.getPays());
+			e.setAdresse(etablissement.getAdresse());
+			e.setSite_web(etablissement.getSite_web());
 			e.setVille(etablissement.getVille());
+			e.setPays(etablissement.getPays());
 			e.setType_Accords(etablissement.getType_Accords());
-			
+			e.setSpecialite(etablissement.getSpecialite());
 			
 			Etabli_Partenaire res = etabli_PartenaireRepository.save(e);
 			logger.debug("New Etablissement created with id {} !", res.getId());
