@@ -3,14 +3,14 @@ function getPatientJson() {
   var formData = {
     pays:$('#pays').val(),
     adresse:$('#adresse').val(),
-    email:$('#email').val()
-    nom:$('#nom').val()
-    quotas:$('#quotas').val()
-    site_web:$('#site_web').val()
-    telephone:$('#telephone').val()
+    email:$('#email').val(),
+    nom:$('#nom').val(),
+    quotas:$('#quotas').val(),
+    site_web:$('#site_web').val(),
+    telephone:$('#telephone').val(),
     type_accords:$('#type_accords').val(),
     ville:$('#ville').val(),
-    specialite:$('#specialite').val(),
+    specialite:$('#Specialite').val(),
     
   };
   return JSON.stringify(formData);
@@ -44,7 +44,7 @@ $("#doCreateButton").on("click", function(event) {
               console.log(msg);
             },
             error: function (request, status, error) {
-              $("#EcoleFormBanner").html('Error!');
+              $("#EcoleFormBanner").html('Tout les champs sont obligatoires !');
               $("#EcoleFormBanner").attr('class', 'alert alert-danger');
               setTimeout(function() { $("#EcoleFormBanner").addClass('d-none'); }, 10000);
               console.log(request.responseText);
