@@ -11,6 +11,7 @@ function getPatientJson() {
     type_accords:$('#type_accords').val(),
     ville:$('#ville').val(),
     specialite:$('#Specialite').val(),
+    photo: $('#photo').val
     
   };
   return JSON.stringify(formData);
@@ -30,28 +31,52 @@ $(".custom-file-input").on("change", function() {
 $("#doCreateButton").on("click", function(event) {
   event.preventDefault();
   var sJSON = getPatientJson();
-
   $.ajax({
-    type : "POST",
-    url : apiURL + '/add',
-    data : sJSON,
-    contentType: "application/json",
-    dataType: "json",
-    success : function(msg) {   
-              $("#EcoleFormBanner").html('Data Submitted successfully');
-              $("#EcoleFormBanner").attr('class', 'alert alert-success');
-              setTimeout(function() { $("#EcoleFormBanner").addClass('d-none'); }, 10000);
-              console.log(msg);
-            },
-            error: function (request, status, error) {
-              $("#EcoleFormBanner").html('Error!');
-              $("#EcoleFormBanner").attr('class', 'alert alert-danger');
-              setTimeout(function() { $("#EcoleFormBanner").addClass('d-none'); }, 10000);
-              console.log(request.responseText);
-              console.log(error);
-            }
-         });
-      });
+	    type : "POST",
+	    url : apiURL + '/add',
+	    data : sJSON,
+	    contentType: "application/json",
+	    dataType: "json",
+	    success : function(msg) {
+	      console.log(msg);
+	      var fileSelect = document.getElementById("photo");
+	      if(fileSelect.files && fileSelect.files.length == 1){
+	         var file = fileSelect.files[0];
+	         var formData = new FormData();
+	         formData.append("photo", file);
+	         $.ajax({
+	            url: apiURL + '/add',
+	            type: "POST",
+	            data: formData,
+	            enctype: 'multipart/form-data',
+	            processData: false,
+	            contentType: false,
+	            cache: false,
+	            success: function (res) {
+	              $("#patientFormBanner").html('Data Submitted successfully');
+	              $("#patientFormBanner").attr('class', 'alert alert-success');
+	              setTimeout(function() { $("#patientFormBanner").addClass('d-none'); }, 10000);
+	              console.log(msg);
+	            },
+	            error: function (request, status, error) {
+	              $("#patientFormBanner").html('Error!');
+	              $("#patientFormBanner").attr('class', 'alert alert-danger');
+	              setTimeout(function() { $("#patientFormBanner").addClass('d-none'); }, 10000);
+	              console.log(request.responseText);
+	              console.log(error);
+	            }
+	         });
+	      }
+	    },
+	    error : function (request, status, error) {
+	      $("#patientFormBanner").html('Error!');
+	      $("#patientFormBanner").attr('class', 'alert alert-danger');
+	      setTimeout(function() { $("#patientFormBanner").addClass('d-none'); }, 10000);
+	      console.log(request.responseText);
+	      console.log(error);
+	    }
+	  });
+});
 
 $("#listEcoles").ready(function() {
 	
@@ -74,7 +99,8 @@ $("#listEcoles").ready(function() {
 			    content += '<td>' + data[i].telephone + '</td>';
 			    content += '<td>' + data[i].type_accords + '</td>';
 			    content += '<td>' + data[i].ville + '</td>';
-			    content += '<td>' + data[i].specialite + '</td>'; 
+			    content += '<td>' + data[i].specialite + '</td>';
+			    content += '<td>' + data[i].photo + '</td>';	    
 			    content += '<th scope="row">' + data[i].id + '</th>';
 			    content += '</tr>';
 		    }

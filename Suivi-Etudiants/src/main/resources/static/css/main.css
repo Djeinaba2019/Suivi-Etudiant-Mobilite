@@ -120,6 +120,11 @@ button {
 /* ==========================================================================
    #PAGE WRAPPER
    ========================================================================== */
+
+.container {
+  width: 100%;
+  padding:25px;
+}
 .page-wrapper {
   min-height: 100vh;
 }
@@ -193,7 +198,7 @@ h6 {
 
 .p-t-15 {
   padding-top: 15px;
-  
+
 }
 
 .p-t-10 {
@@ -247,7 +252,7 @@ h6 {
   font-size: 16px;
   color: blue;
   font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
-  
+
 }
 .btn {
   display: inline-block;
