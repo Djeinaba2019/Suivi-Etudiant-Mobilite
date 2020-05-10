@@ -38,7 +38,7 @@ public class EtablissementPartenaireDto {
 	private String Specialite;
 
 	@Lob
-	@NotBlank
+	@NotNull
 	private ImageModel photo;
 	
 	public ImageModel getPhoto() {
@@ -113,7 +113,7 @@ public class EtablissementPartenaireDto {
 	}
 	public EtablissementPartenaireDto(@NotBlank String nom, @NotBlank String ville, @NotBlank String pays,
 			String type_Accords, int quotas, @NotBlank String email, @NotBlank String telephone,
-			@NotBlank String adresse, @NotBlank String site_web, @NotBlank String specialite , ImageModel photo
+			@NotBlank String adresse, @NotBlank String site_web, @NotBlank String specialite ,@NotBlank ImageModel photo
 			) {
 		super();
 		this.nom = nom;
