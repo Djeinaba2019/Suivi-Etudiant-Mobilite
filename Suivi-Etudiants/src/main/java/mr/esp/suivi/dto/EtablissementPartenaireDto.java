@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.FetchType;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -17,28 +18,27 @@ import mr.esp.suivi.model.ImageModel;
 
 public class EtablissementPartenaireDto {
 	
-	@NotBlank
+	
 	private String nom;
-	@NotBlank
+	
 	private String ville;
-	@NotBlank
+	
 	private String Pays ;
+	
 	private String type_Accords;
-	@NotNull
+	
 	private int quotas;
-	@NotBlank
+	
 	private String email;
-	@NotBlank
+	
 	private String telephone;
-	@NotBlank
+	
 	private String adresse;
-	@NotBlank
+	
 	private String site_web;
-	@NotBlank
+	
 	private String Specialite;
 
-	@Lob
-	@NotNull
 	private ImageModel photo;
 	
 	public ImageModel getPhoto() {
@@ -111,9 +111,9 @@ public class EtablissementPartenaireDto {
 	public void setSite_web(String site_web) {
 		this.site_web = site_web;
 	}
-	public EtablissementPartenaireDto(@NotBlank String nom, @NotBlank String ville, @NotBlank String pays,
-			String type_Accords, int quotas, @NotBlank String email, @NotBlank String telephone,
-			@NotBlank String adresse, @NotBlank String site_web, @NotBlank String specialite ,@NotBlank ImageModel photo
+	public EtablissementPartenaireDto( String nom,  String ville,  String pays,
+			 String type_Accords, int quotas,  String email,  String telephone,
+			 String adresse,  String site_web,  String specialite , ImageModel photo
 			) {
 		super();
 		this.nom = nom;

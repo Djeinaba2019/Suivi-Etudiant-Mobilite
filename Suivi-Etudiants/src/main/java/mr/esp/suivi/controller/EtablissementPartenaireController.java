@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -35,6 +36,7 @@ import mr.esp.suivi.repository.EtablissementPartenaireRepository;
 @RequestMapping(path="/ecole")
 public class EtablissementPartenaireController {
 	 private static final Logger logger = LoggerFactory.getLogger(EtablissementPartenaireController.class);
+	 
 	 
 	 private static String upload_Dir= System.getProperty("user.home")+"/test";
 	 
@@ -62,10 +64,12 @@ public class EtablissementPartenaireController {
 			return p;
 		}
 		
+		//controller pour ajouter les données de l'école partenaire
+		
 		@PostMapping(path="/add")
-		public EtablissementPartenaire addEtablissement (@Valid @RequestBody EtablissementPartenaireDto etablissement, @RequestParam("photo") MultipartFile file) throws IOException {
+		public EtablissementPartenaire addEtablissement (@Valid @RequestBody EtablissementPartenaireDto etablissement) throws IOException {
 			
-			ImageModel image = new ImageModel(file.getOriginalFilename(),file.getContentType(),file.getBytes());
+			//ImageModel image = new ImageModel(file.getOriginalFilename(),file.getContentType(),file.getBytes());
 			
 			EtablissementPartenaire e = new EtablissementPartenaire();
 			e.setNom(etablissement.getNom());
@@ -78,52 +82,37 @@ public class EtablissementPartenaireController {
 			e.setPays(etablissement.getPays());
 			e.setType_Accords(etablissement.getType_Accords());
 			e.setSpecialite(etablissement.getSpecialite());
-			e.setPhoto(image);
-			
 
-			
+					
 			EtablissementPartenaire res = etabli_PartenaireRepository.save(e);
 			logger.debug("New Etablissement created with id {} !", res.getId());
 			return res;
 		}
 		
 		
-	/*	@PostMapping(path="/upload")
-		public ResponseEntity<?> uploadFile(@Valid @ModelAttribute EtablissementPartenaireDto etablissement, @RequestParam("file") MultipartFile uploadfile) throws IOException {
+		
+	//controller pour ajouter une image d'une école partenaire
+		
+	@PostMapping(path="/upload", consumes = { "multipart/form-data" })
+		public String uploadFile(@RequestPart(name="photo", required = false) MultipartFile file) throws IOException {
 			 logger.debug("un fichier sauvegardé");
+			 ImageModel image = new ImageModel(file.getOriginalFilename(),file.getContentType(),file.getBytes());
+			 try {
 			 
-			 if(uploadfile.isEmpty()) {
-				 return new ResponseEntity("Aucun fichier selectionnez ! veillez saisir un fichier", HttpStatus.OK);
+
+				EtablissementPartenaire e = new EtablissementPartenaire();
+				e.setPhoto(image);
+				EtablissementPartenaire res=etabli_PartenaireRepository.save(e);
+				logger.debug("image sauvegarder  !", res.getId());
+			 return "success "+file.getOriginalFilename();}
+			 catch(Exception e) {
+				 return "erreur ";
 			 }
 			
-			try {
-			SauvegardeFichiers(etablissement.getPhoto());}
-			catch(IOException e){
-				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-			}
-			return new ResponseEntity("fichier sauvegardé avec succés",HttpStatus.OK);
+		} 
+		
+		
 			
-		} */
-		
-		
-		
-	/*private void SauvegardeFichiers(MultipartFile file) throws IOException {
-		
-		File uploadDir= new File(upload_Dir);
-		uploadDir.mkdirs();
-		
-		
-		String uploadFilePath=upload_Dir+"/"+file.getOriginalFilename();
-		
-		byte[] bytes= file.getBytes();
-	   
-		Path chemin = Paths.get(uploadFilePath);
-		Files.write(chemin, bytes);
-		
-	
-		
-	}	*/
-		
 
 		
 		
