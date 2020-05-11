@@ -28,8 +28,35 @@ $(".custom-file-input").on("change", function() {
 });
 
 $("#doCreateButton").on("click", function(event) {
+<<<<<<< HEAD
 	  event.preventDefault();
 	  var sJSON = getPatientJson();
+=======
+  event.preventDefault();
+  var sJSON = getPatientJson();
+
+  $.ajax({
+    type : "POST",
+    url : apiURL + '/add',
+    data : sJSON,
+    contentType: "application/json",
+    dataType: "json",
+    success : function(msg) {   
+              $("#EcoleFormBanner").html('Data Submitted successfully');
+              $("#EcoleFormBanner").attr('class', 'alert alert-success');
+              setTimeout(function() { $("#EcoleFormBanner").addClass('d-none'); }, 10000);
+              console.log(msg);
+            },
+            error: function (request, status, error) {
+              $("#EcoleFormBanner").html('Tout les champs sont obligatoires !');
+              $("#EcoleFormBanner").attr('class', 'alert alert-danger');
+              setTimeout(function() { $("#EcoleFormBanner").addClass('d-none'); }, 10000);
+              console.log(request.responseText);
+              console.log(error);
+            }
+         });
+      });
+>>>>>>> 2b10923c8b059f5838d8af815e2d1c59b3a0e098
 
 	  $.ajax({
 	    type : "POST",
