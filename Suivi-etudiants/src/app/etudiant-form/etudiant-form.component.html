@@ -1,0 +1,132 @@
+<div class="container">
+    <h3 class="mb-0">Formulaire de candidature Mobilité Internationale</h3>
+    <form #etudiantForm="ngForm">
+      
+      <div class="container">
+        
+        <h4><b>Identité de l’étudiant(e)</b></h4>
+      <div class="form-group">
+        <label for="nom">Nom</label>
+<input type="text" class="form-control" id="nom"
+       required
+       [(ngModel)]="model.nom" name="nom"
+       #name="ngModel">
+<div [hidden]="name.valid || name.pristine"
+     class="alert alert-danger">
+  Nom est requis
+</div>
+
+<div class="form-group">
+  <label for="prenom">Prenom</label>
+<input type="text" class="form-control" id="prenom"
+ required
+ [(ngModel)]="model.prenom" name="prenom"
+ #name="ngModel">
+<div [hidden]="name.valid || name.pristine"
+class="alert alert-danger">
+Prenom est requis
+</div></div>
+
+
+<div class="form-group">
+  <label for="matricule">Matricule</label>
+<input type="text" class="form-control" id="matricule"
+ required
+ [(ngModel)]="model.matricule" name="matricule"
+ #name="ngModel">
+<div [hidden]="name.valid || name.pristine"
+class="alert alert-danger">
+Matricule est requis
+</div></div>
+
+<div class="form-group">
+  <label for="email">Email</label>
+<input type="email" class="form-control" id="email"
+ required
+ [(ngModel)]="model.email" name="email"
+ #name="ngModel">
+<div [hidden]="name.valid || name.pristine"
+class="alert alert-danger">
+Email est requis
+</div></div>
+
+<div class="form-group">
+  <label for="nni">NNI</label>
+<input type="text" class="form-control" id="nni"
+ required
+ [(ngModel)]="model.nni" name="nni"
+ #name="ngModel">
+<div [hidden]="name.valid || name.pristine"
+class="alert alert-danger">
+NNI est requis
+</div></div>
+
+<div class="form-group">
+  <label for="telephone">Téléphone</label>
+<input type="text" class="form-control" id="telephone"
+ required
+ [(ngModel)]="model.telephone" name="telephone"
+ #name="ngModel">
+<div [hidden]="name.valid || name.pristine"
+class="alert alert-danger">
+Telephone est requis
+</div></div>
+
+<div class="form-group">
+  <label for="dateOfBirth">Date de Naissance</label>
+<input type="date" class="form-control" id="dateOfBirth"
+ required
+ [(ngModel)]="model.dateOfBirth" name="dateOfBirth"
+ #name="ngModel">
+<div [hidden]="name.valid || name.pristine"
+class="alert alert-danger">
+Votre Datre de naissance est requis
+</div></div>
+      </div>
+    </div>
+
+
+    <div class="container">
+    
+      <h4><b>Département à l'ESP</b></h4>
+      <div class="form-group">
+        <label for="Département">Type de mobilité</label>
+        <select class="form-control" id="departement" required>
+          <option *ngFor="let dep of departement" [value]="dep">{{dep}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="container">
+      <h4><b>Mobilités</b></h4>
+      <p>Veuillez exprimer ci-dessous les vœux de votre mobilité par ordre de préférence en se basant sur les informations disponibles dans le "Passeport de Mobilité</p>
+    <div class="form-group">
+      <label for="typeMobilite">Type de mobilité</label>
+      <select class="form-control" id="typeMobilite" required>
+        <option *ngFor="let tm of typeMobilite" [value]="tm">{{tm}}</option>
+      </select>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ecole">Choix 1</label>
+      <select class="form-control" id="ecole" required>
+        <option *ngFor="let ecol of ecole" [value]="ecol">{{ecol}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="ecole">Choix 2</label>
+      <select class="form-control" id="ecole" required>
+        <option *ngFor="let ecol of ecole" [value]="ecol">{{ecol}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="ecole">Choix 3</label>
+      <select class="form-control" id="ecole" required>
+        <option *ngFor="let ecol of ecole" [value]="ecol">{{ecol}}</option>
+      </select>
+    </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+</div>
