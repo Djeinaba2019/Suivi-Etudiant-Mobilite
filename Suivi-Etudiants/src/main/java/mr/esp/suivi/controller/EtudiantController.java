@@ -1,4 +1,5 @@
-package mr.esp.springdemo.controller;
+package mr.esp.suivi.controller;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -13,19 +14,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import mr.esp.springdemo.dto.Etabli_PartenaireDto;
-import mr.esp.springdemo.dto.EtudiantDto;
-import mr.esp.springdemo.exception.ResourceNotFoundException;
-import mr.esp.springdemo.model.Etabli_Partenaire;
-import mr.esp.springdemo.model.Etudiant;
-import mr.esp.springdemo.repository.Etabli_PartenaireRepository;
-import mr.esp.springdemo.repository.EtudiantRepository;
-
+import mr.esp.suivi.dto.EtudiantDto;
+import mr.esp.suivi.exception.ResourceNotFoundException;
+import mr.esp.suivi.model.Etudiant;
+import mr.esp.suivi.repository.EtudiantRepository;
 
 
 @RestController
 @RequestMapping(path="/etudiant")
+
 public class EtudiantController {
+	
 	private static final Logger logger = LoggerFactory.getLogger(EtudiantController.class);
 
 	 @Autowired
@@ -60,7 +59,7 @@ public class EtudiantController {
 			e.setPrenom(etudiant.getPrenom());
 			e.setEmail(etudiant.getEmail());
 			e.setTelephone(etudiant.getTelephone());
-			e.setDateDeNaissence(etudiant.getDateDeNaissence());
+			e.setDateDeNaissance(etudiant.getDateDeNaissance());
 			e.setNni(etudiant.getNni());
 			e.setMatricule(etudiant.getMatricule());
 			e.setPhoto(etudiant.getPhoto());
@@ -70,8 +69,6 @@ public class EtudiantController {
 		}
 		
 		
-		
-		
-		
-		
+
+
 }
