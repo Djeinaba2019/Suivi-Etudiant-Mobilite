@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 import mr.esp.springdemo.model.Departement;
 import mr.esp.springdemo.model.Etabli_Partenaire;
+import mr.esp.springdemo.model.ImageModel;
 import mr.esp.springdemo.model.TypeMobilite;
 
 public class EtudiantDto {
@@ -96,8 +97,15 @@ public class EtudiantDto {
 	 @NotBlank
 	 private String email;
 	    private String nni;
-	  
-	    private TypeMobilite typeMobilite;
+	    
+	  private ImageModel image;
+	    public ImageModel getImage() {
+		return image;
+	}
+	public void setImage(ImageModel image) {
+		this.image = image;
+	}
+		private TypeMobilite typeMobilite;
 	   
         private Departement departement;
 	    

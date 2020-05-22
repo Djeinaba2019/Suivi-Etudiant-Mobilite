@@ -20,12 +20,15 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import mr.esp.springdemo.repository.ImageRepository;
 import mr.esp.springdemo.model.ImageModel;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "image")
 public class ImageUploadController {
+	
 	@Autowired
 	ImageRepository imageRepository;
+	
 	@PostMapping("/upload")
 	public BodyBuilder uplaodImage(@RequestParam("imageFile") MultipartFile file) throws IOException {
 		System.out.println("Original Image Byte Size - " + file.getBytes().length);
@@ -34,14 +37,18 @@ public class ImageUploadController {
 		imageRepository.save(img);
 		return ResponseEntity.status(HttpStatus.OK);
 	}
+	
 	@GetMapping(path = { "/get/{imageName}" })
 	public ImageModel getImage(@PathVariable("imageName") String imageName) throws IOException {
+		
 		final Optional<ImageModel> retrievedImage = imageRepository.findByName(imageName);
 		ImageModel img = new ImageModel(retrievedImage.get().getName(), retrievedImage.get().getType(),
 				decompressBytes(retrievedImage.get().getPicByte()));
 		return img;
 	}
+	
 	// compress the image bytes before storing it in the database
+	
 	public static byte[] compressBytes(byte[] data) {
 		Deflater deflater = new Deflater();
 		deflater.setInput(data);
@@ -59,7 +66,9 @@ public class ImageUploadController {
 		System.out.println("Compressed Image Byte Size - " + outputStream.toByteArray().length);
 		return outputStream.toByteArray();
 	}
+	
 	// uncompress the image bytes before returning it to the angular application
+	
 	public static byte[] decompressBytes(byte[] data) {
 		Inflater inflater = new Inflater();
 		inflater.setInput(data);

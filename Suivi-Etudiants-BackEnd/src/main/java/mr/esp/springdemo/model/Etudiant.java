@@ -105,6 +105,13 @@ public class Etudiant {
 		private Etabli_Partenaire choix2;
 		@OneToOne
 		private Etabli_Partenaire choix3;
-		
+		@OneToOne
+		private ImageModel image;
+		public ImageModel getImage() {
+			return image;
+		}
+		public void setImage(ImageModel image) {
+			this.image = image;
+		}
         
 }
