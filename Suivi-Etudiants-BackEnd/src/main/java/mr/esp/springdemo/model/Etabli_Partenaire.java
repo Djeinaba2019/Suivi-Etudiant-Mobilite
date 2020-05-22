@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -127,16 +128,16 @@ public void setType_Accords(String type_Accords) {
 	this.type_Accords = type_Accords;
 }
 
-//@OnetoMany(mapped="Type_Mobilite")
-//private Collection<Type_Mobilite> type;
+    public Collection<Etudiant> getEtudiants() {
+	return etudiants;
+}
 
+public void setEtudiants(Collection<Etudiant> etudiants) {
+	this.etudiants = etudiants;
+}
 
-
-
-	
-	
-	
-	
-	
+	@OneToMany
+    private Collection<Etudiant> etudiants;
+    
 
 }

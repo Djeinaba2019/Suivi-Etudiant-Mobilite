@@ -1,12 +1,15 @@
 package mr.esp.springdemo.dto;
 
 
+import java.util.Collection;
 import java.util.Date;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+
+import mr.esp.springdemo.model.Etudiant;
 
 
 public class Etabli_PartenaireDto {
@@ -90,5 +93,13 @@ public class Etabli_PartenaireDto {
 	}
 	public void setSite_web(String site_web) {
 		this.site_web = site_web;
+	}
+	private Collection<Etudiant> etudiants;
+
+	public Collection<Etudiant> getEtudiants() {
+		return etudiants;
+	}
+	public void setEtudiants(Collection<Etudiant> etudiants) {
+		this.etudiants = etudiants;
 	}
 }

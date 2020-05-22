@@ -24,7 +24,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import mr.esp.springdemo.EspTemplateSpringApplication;
-import mr.esp.springdemo.repository.StudentRepository;
+import mr.esp.springdemo.repository.EtudiantRepository;
 
 @SpringBootTest
 @ActiveProfiles("dev")
@@ -37,30 +37,32 @@ class EspTemplateSpringApplicationTests {
     private MockMvc mockMvc;
 
 	@Resource
-    private StudentRepository mockPatientRepository;
+    private EtudiantRepository mockEtudiantRepository;
     
 	@Test
 	void contextLoads() {
-		assertThat(mockPatientRepository).isNotNull();
+		assertThat(mockEtudiantRepository).isNotNull();
 	}
 	
 	
 	@Test
-	public void addPatientTestOk() throws Exception {
+	public void addEtudiantTestOk() throws Exception {
         
 		JSONObject p = new JSONObject();
-		p.put("name", "Sidi");
-		p.put("surname", "Mohamed");
-		p.put("dateOfBirth", "11-11-2001");
+		p.put("nom", "Sidi");
+		p.put("prenom", "Mohamed");
+		p.put("dateDeNaissance", "11-11-2001");
+		p.put("matricule", "1255");
 
-		MockMultipartFile studentData = new MockMultipartFile("student", "student", MediaType.APPLICATION_JSON_VALUE,
+		MockMultipartFile etudiantData = new MockMultipartFile("etudiant", "etudiant", MediaType.APPLICATION_JSON_VALUE,
 				p.toString().getBytes(StandardCharsets.UTF_8));
 
-		mockMvc.perform(multipart("/patient/add").file(studentData))
+		mockMvc.perform(multipart("/etudiant/add").file(etudiantData))
 				.andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(jsonPath("$.name", is("Sidi")))
-                .andExpect(jsonPath("$.surname", is("Mohamed")))
-                .andExpect(jsonPath("$.dateOfBirth", is("2001-11-11T00:00:00.000+0000")));
+                .andExpect(jsonPath("$.nom", is("Sidi")))
+                .andExpect(jsonPath("$.prenom", is("Mohamed")))
+                .andExpect(jsonPath("$.matricule", is("1255")))
+                .andExpect(jsonPath("$.dateDeNaissance", is("2001-11-11T00:00:00.000+0000")));
 
 	}
 	 

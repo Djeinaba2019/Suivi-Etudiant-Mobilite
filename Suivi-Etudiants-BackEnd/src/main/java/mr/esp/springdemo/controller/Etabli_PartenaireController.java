@@ -1,9 +1,5 @@
 package mr.esp.springdemo.controller;
 
-
-
-
-
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -22,8 +18,6 @@ import mr.esp.springdemo.dto.Etabli_PartenaireDto;
 import mr.esp.springdemo.exception.ResourceNotFoundException;
 import mr.esp.springdemo.model.Etabli_Partenaire;
 import mr.esp.springdemo.repository.Etabli_PartenaireRepository;
-
-
 
 @RestController
 @RequestMapping(path="/ecole")
