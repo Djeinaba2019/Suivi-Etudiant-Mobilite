@@ -1,13 +1,20 @@
+import { Departement } from './departement';
+import { EtabliPartenaire } from './etabli-partenaire';
+import { TypeMobilite } from './type-mobilite';
 
 export class Etudiant {
-    constructor(
-        public matricule: string,
-        public nom: string,
-        public prenom: string,
-        public nni: string,
-        public email: string,
-        public telephone: string,
-        public dateOfBirth: string,  
-             
-      ) {  }
+         matricule: number;
+         nom: string;
+         prenom: string;
+         nni: string;
+         email: string;
+         telephone: string;
+         dateDeNaissance: string; 
+         typeMobilite: TypeMobilite;
+         departement: Departement;
+         choix1: EtabliPartenaire;
+         choix2: EtabliPartenaire;
+         choix3: EtabliPartenaire;
+       
+     
 }

@@ -1,0 +1,79 @@
+<h3>Create Etudiant</h3>
+<div [hidden]="submitted" style="width: 400px;">
+
+  <form (ngSubmit)="onSubmit()">
+
+
+     <div class="form-group">
+        <label for="name">Matricule</label>
+        <input type="number" class="form-control" placeholder="Matricule"  id="matricule" required [(ngModel)]="etudiant.matricule" name="matricule">
+      </div>
+
+     <div class="form-group">
+      <label for="name">Nom</label>
+      <input type="text" class="form-control" placeholder="Nom"  id="nom" required [(ngModel)]="etudiant.nom" name="nom">
+     </div>
+
+     <div class="form-group">
+      <label for="name">Prenom</label>
+      <input type="text" class="form-control" placeholder="Prenom" id="prenom" required [(ngModel)]="etudiant.prenom" name="prenom">
+     </div>
+
+     <div class="form-group">
+      <label for="name">Email</label>
+      <input type="email" class="form-control" placeholder="Email"  id="email" required [(ngModel)]="etudiant.email" name="email">
+     </div>
+
+     <div class="form-group">
+        <label for="name">telephone</label>
+        <input type="text" class="form-control" placeholder="Telephone" id="telephone" required [(ngModel)]="etudiant.telephone" name="telephone">
+      </div>
+
+  
+      <div class="form-group">
+        <label for="name">dateDeNaissance</label>
+        <input type="date" class="form-control" placeholder="Date de Naissance"  id="dateDeNaissance" required [(ngModel)]="etudiant.dateDeNaissance" name="dateDeNaissance">
+      </div>
+
+      <div class="form-group">
+        <label for="name">NNI</label>
+        <input type="text" class="form-control" placeholder="Nni"  id="nni" required [(ngModel)]="etudiant.nni" name="nni">
+      </div>
+
+        
+          
+      <div class="form-group">
+        <label for="name">Departement</label>
+        <select  class="form-control"  id="departement" required [(ngModel)]="etudiant.departement.codeDep" name="codeDep" >
+            <option *ngFor="let departement of departements | async" [value]="departement.codeDep">{{departement.nom}}</option>
+          </select></div>
+
+          <div class="form-group">
+            <label for="name">Type de mobilité</label>
+            <select  class="form-control" id="typeMobilite" required [(ngModel)]="etudiant.typeMobilite.typeMobilite_Id" name="typeMobilite_Id">
+                <option *ngFor="let typeMobilite of typeMobili | async" [value]="typeMobilite.typeMobilite_Id">{{typeMobilite.libelle}}</option>
+            </select></div>
+
+<div class="form-group">
+        <label for="name">Choix 1</label>
+        <select  class="form-control"  id="choix1" required [(ngModel)]="etudiant.choix1.id" name="id" >
+            <option *ngFor="let choix1 of ecoles | async" [value]="choix1.id">{{choix1.nom}}</option>
+        </select></div>
+        <div class="form-group">
+          <label for="name">Choix 2</label>
+          <select  class="form-control"  id="choix2" required [(ngModel)]="etudiant.choix2.id" name="id" >
+              <option *ngFor="let choix2 of ecoles | async" [value]="choix2.id">{{choix2.nom}}</option>
+          </select></div>
+          <div class="form-group">
+            <label for="name">Choix 3</label>
+            <select  class="form-control"  id="choix3" required [(ngModel)]="etudiant.choix3.id" name="id" >
+                <option *ngFor="let choix3 of ecoles | async" [value]="choix3.id">{{choix3.nom}}</option>
+            </select></div>
+     <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+   </div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <button class="btn btn-success" (click)="newEtudiant()">Ajouter</button> 
+</div>
