@@ -1,14 +1,11 @@
 package mr.esp.springdemo.controller;
 
-
-
-
-
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,9 +20,8 @@ import mr.esp.springdemo.exception.ResourceNotFoundException;
 import mr.esp.springdemo.model.Etabli_Partenaire;
 import mr.esp.springdemo.repository.Etabli_PartenaireRepository;
 
-
-
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path="/ecole")
 public class Etabli_PartenaireController {
 	 private static final Logger logger = LoggerFactory.getLogger(Etabli_PartenaireController.class);

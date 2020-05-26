@@ -42,4 +42,18 @@ public class ImageModel {
 	public void setPicByte(byte[] picByte) {
 		this.picByte = picByte;
 	}
+	@OneToOne
+	private Etudiant etudiant;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Etudiant getEtudiant() {
+		return etudiant;
+	}
+	public void setEtudiant(Etudiant etudiant) {
+		this.etudiant = etudiant;
+	}
 }

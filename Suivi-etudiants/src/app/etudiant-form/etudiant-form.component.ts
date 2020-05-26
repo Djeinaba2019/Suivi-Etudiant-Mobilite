@@ -16,7 +16,7 @@ export class EtudiantFormComponent {
   ecole = ['INSA de Lyon', 'ENIS',
             'ESP'];
   
-  model = new Etudiant('18067', 'Wafaa', 'Sidi', '1234567', 'wevasidi@gmail.com','123456','1-1-1800');
+  model = new Etudiant();
  
   submitted = false;
 
