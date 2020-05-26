@@ -1,9 +1,9 @@
 import { Etudiant } from './etudiant';
 
 export class Departement {
-    constructor(
-        public codeDep: string,
-        public nom: string,
-        public etudiants:  Array<Etudiant> 
-      ) {  }
+   
+         codeDep: string;
+         nom: string;
+         etudiants:  Array<Etudiant> 
+      
 }
