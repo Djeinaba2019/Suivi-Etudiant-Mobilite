@@ -23,18 +23,16 @@ public class Departement {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	
-	public Collection<EtablissementPartenaire> getEcolesPartenaire() {
-		return ecolesPartenaire;
+	public Collection<Etudiant> getEtudiants() {
+		return etudiants;
 	}
-	public void setEcolesPartenaire(Collection<EtablissementPartenaire> ecolesPartenaire) {
-		this.ecolesPartenaire = ecolesPartenaire;
+	public void setEtudiants(Collection<Etudiant> etudiants) {
+		this.etudiants = etudiants;
 	}
-
 	@Id
 	private String codeDep;
 	private String nom ;
 	@OneToMany
-    private Collection <EtablissementPartenaire> ecolesPartenaire;
+    private Collection <Etudiant> etudiants;
 	
 }
