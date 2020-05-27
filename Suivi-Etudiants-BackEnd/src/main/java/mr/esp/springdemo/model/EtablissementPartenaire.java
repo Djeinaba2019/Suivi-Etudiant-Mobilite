@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-public class EtablissementPartenaire {
+public class Etabli_Partenaire {
 	
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)

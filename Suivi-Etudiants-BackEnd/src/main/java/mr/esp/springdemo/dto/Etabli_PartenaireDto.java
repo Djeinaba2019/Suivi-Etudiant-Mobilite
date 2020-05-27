@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import mr.esp.springdemo.model.Etudiant;
 
 
-public class EtablissementPartenaireDto {
+public class Etabli_PartenaireDto {
 	
 	
 	public String getNom() {
