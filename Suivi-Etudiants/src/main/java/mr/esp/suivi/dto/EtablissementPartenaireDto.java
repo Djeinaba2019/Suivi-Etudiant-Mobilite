@@ -1,4 +1,4 @@
-package mr.esp.springdemo.dto;
+package mr.esp.suivi.dto;
 
 
 import java.util.Collection;
@@ -9,7 +9,7 @@ import javax.validation.constraints.PastOrPresent;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import mr.esp.springdemo.model.Etudiant;
+import mr.esp.suivi.model.Etudiant;
 
 
 public class EtablissementPartenaireDto {

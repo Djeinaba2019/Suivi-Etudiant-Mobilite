@@ -1,4 +1,4 @@
-package mr.esp.springdemo.controller;
+package mr.esp.suivi.controller;
 
 import javax.validation.Valid;
 
@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import mr.esp.springdemo.dto.DepartementDto;
-import mr.esp.springdemo.exception.ResourceNotFoundException;
-import mr.esp.springdemo.model.Departement;
-import mr.esp.springdemo.repository.DepartementRepository;
+import mr.esp.suivi.dto.DepartementDto;
+import mr.esp.suivi.exception.ResourceNotFoundException;
+import mr.esp.suivi.model.Departement;
+import mr.esp.suivi.repository.DepartementRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")

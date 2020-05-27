@@ -1,4 +1,4 @@
-package mr.esp.springdemo.model;
+package mr.esp.suivi.model;
 
 import java.util.Collection;
 

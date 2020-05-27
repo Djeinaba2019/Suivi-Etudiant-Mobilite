@@ -1,4 +1,4 @@
-package mr.esp.springdemo.controller;
+package mr.esp.suivi.controller;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -14,13 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import mr.esp.springdemo.dto.Etabli_PartenaireDto;
-import mr.esp.springdemo.dto.EtudiantDto;
-import mr.esp.springdemo.exception.ResourceNotFoundException;
-import mr.esp.springdemo.model.Etabli_Partenaire;
-import mr.esp.springdemo.model.Etudiant;
-import mr.esp.springdemo.repository.Etabli_PartenaireRepository;
-import mr.esp.springdemo.repository.EtudiantRepository;
+
+import mr.esp.suivi.dto.EtudiantDto;
+import mr.esp.suivi.exception.ResourceNotFoundException;
+import mr.esp.suivi.model.Etudiant;
+
+import mr.esp.suivi.repository.EtudiantRepository;
 
 @RestController
 @RequestMapping(path="/etudiant")
@@ -62,12 +61,8 @@ public class EtudiantController {
 			e.setNni(etudiant.getNni());
 			e.setMatricule(etudiant.getMatricule());
 			//e.setPhoto(etudiant.getPhoto());
-			e.setChoix1(etudiant.getChoix1());
-			e.setChoix2(etudiant.getChoix2());
-			e.setChoix3(etudiant.getChoix3());
-			e.setImage(etudiant.getImage());
 			e.setDepartement(etudiant.getDepartement());
-			e.setTypeMobilite(etudiant.getTypeMobilite());
+		
 			Etudiant res = etudiantRepository.save(e);
 			logger.debug("New etudiant created with Matricule {} !", res.getMatricule());
 			return res;

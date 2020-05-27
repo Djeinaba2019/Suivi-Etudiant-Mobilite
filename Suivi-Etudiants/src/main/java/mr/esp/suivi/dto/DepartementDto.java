@@ -1,8 +1,8 @@
-package mr.esp.springdemo.dto;
+package mr.esp.suivi.dto;
 
 import java.util.Collection;
 
-import mr.esp.springdemo.model.EtablissementPartenaire;
+import mr.esp.suivi.model.EtablissementPartenaire;
 
 public class DepartementDto {
 	

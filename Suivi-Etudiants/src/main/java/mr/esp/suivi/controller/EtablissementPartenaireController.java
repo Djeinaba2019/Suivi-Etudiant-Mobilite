@@ -1,4 +1,4 @@
-package mr.esp.springdemo.controller;
+package mr.esp.suivi.controller;
 
 import javax.validation.Valid;
 
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import mr.esp.springdemo.dto.Etabli_PartenaireDto;
-import mr.esp.springdemo.exception.ResourceNotFoundException;
-import mr.esp.springdemo.model.Etabli_Partenaire;
-import mr.esp.springdemo.repository.Etabli_PartenaireRepository;
+import mr.esp.suivi.dto.EtablissementPartenaireDto;
+import mr.esp.suivi.exception.ResourceNotFoundException;
+import mr.esp.suivi.model.EtablissementPartenaire;
+import mr.esp.suivi.repository.EtablissementPartenaireRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -27,31 +27,31 @@ public class EtablissementPartenaireController {
 	 private static final Logger logger = LoggerFactory.getLogger(EtablissementPartenaireController.class);
 
 	 @Autowired
-		private Etabli_PartenaireRepository etabli_PartenaireRepository;
+		private EtablissementPartenaireRepository etabli_PartenaireRepository;
 	
 
 		@GetMapping(path="/all")
-		public Iterable<Etabli_Partenaire> getAllEtablissements() {
+		public Iterable<EtablissementPartenaire> getAllEtablissements() {
 			return etabli_PartenaireRepository.findAll();
 		}
 		
 
 		@GetMapping(path="/{id}")
-		public Etabli_Partenaire getEtablissement(@PathVariable Integer id) {
+		public EtablissementPartenaire getEtablissement(@PathVariable Integer id) {
 			return etabli_PartenaireRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Etablissement", "id", id));
 		}
 		
 		@DeleteMapping(path="/{id}")
-		public Etabli_Partenaire deleteEtablissement(@PathVariable Integer id) {
-			Etabli_Partenaire p = etabli_PartenaireRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Etablissement", "id", id));
+		public EtablissementPartenaire deleteEtablissement(@PathVariable Integer id) {
+			EtablissementPartenaire p = etabli_PartenaireRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Etablissement", "id", id));
 			etabli_PartenaireRepository.delete(p);
 			return p;
 		}
 		
 		@PostMapping(path="/add")
-		public Etabli_Partenaire addEtablissement (@Valid @RequestBody Etabli_PartenaireDto etablissement) {
+		public EtablissementPartenaire addEtablissement (@Valid @RequestBody EtablissementPartenaireDto etablissement) {
 			
-			Etabli_Partenaire e = new Etabli_Partenaire();
+			EtablissementPartenaire e = new EtablissementPartenaire();
 			e.setNom(etablissement.getNom());
 			e.setEmail(etablissement.getEmail());
 			e.setAdresse(etablissement.getAdresse());
@@ -64,7 +64,7 @@ public class EtablissementPartenaireController {
 			e.setDate_Accords(etablissement.getDate_Accords());
 			
 			
-			Etabli_Partenaire res = etabli_PartenaireRepository.save(e);
+			EtablissementPartenaire res = etabli_PartenaireRepository.save(e);
 			logger.debug("New Etablissement created with id {} !", res.getId());
 			return res;
 		}
@@ -76,4 +76,5 @@ public class EtablissementPartenaireController {
 		
 		
 		
+
 }
