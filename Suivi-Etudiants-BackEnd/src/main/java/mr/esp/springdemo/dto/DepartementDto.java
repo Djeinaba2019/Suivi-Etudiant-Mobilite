@@ -2,12 +2,12 @@ package mr.esp.springdemo.dto;
 
 import java.util.Collection;
 
-
-
-import mr.esp.springdemo.model.Etudiant;
+import mr.esp.springdemo.model.EtablissementPartenaire;
 
 public class DepartementDto {
+	
 	private String codeDep;
+	
 	public String getCodeDep() {
 		return codeDep;
 	}
@@ -24,15 +24,9 @@ public class DepartementDto {
 		this.nom = nom;
 	}
 
-	public Collection<Etudiant> getEtudiants() {
-		return etudiants;
-	}
 
-	public void setEtudiants(Collection<Etudiant> etudiants) {
-		this.etudiants = etudiants;
-	}
 
 	private String nom ;
 
-    private Collection <Etudiant> etudiants;
+    private Collection <EtablissementPartenaire> ecolesPartenaire;
 }
