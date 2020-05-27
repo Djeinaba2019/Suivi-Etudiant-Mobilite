@@ -20,41 +20,41 @@ import mr.esp.springdemo.repository.DepartementRepository;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping(path = "/departement")
+@RequestMapping(path="/departement")
 public class DepartementController {
 	private static final Logger logger = LoggerFactory.getLogger(DepartementController.class);
+	
+	 @Autowired
+		private DepartementRepository departementRepository;
+	 
+	 @GetMapping(path="/all")
+	 public Iterable<Departement> getAllDepartement()
+	 {
+		 return departementRepository.findAll();
+	 }
+	 
+	 @GetMapping(path="/{codeDep}")
+	 public Departement getDepartement(@PathVariable String codeDep) {
+			return departementRepository.findById(codeDep).orElseThrow(() -> new ResourceNotFoundException("Departement", "codeDep", codeDep));
+		}
+	 @DeleteMapping(path="/{codeDep}")
+		public Departement deleteDepartement(@PathVariable String codeDep) {
+			Departement dep = departementRepository.findById(codeDep).orElseThrow(() -> new ResourceNotFoundException("Departement", "codeDep", codeDep));
+			departementRepository.delete(dep);
+			return dep;
+		}
 
-	@Autowired
-	private DepartementRepository departementRepository;
-
-	@GetMapping(path = "/all")
-	public Iterable<Departement> getAllDepartement() {
-		return departementRepository.findAll();
-	}
-
-	@GetMapping(path = "/{codeDep}")
-	public Departement getDepartement(@PathVariable String codeDep) {
-		return departementRepository.findById(codeDep)
-				.orElseThrow(() -> new ResourceNotFoundException("Departement", "codeDep", codeDep));
-	}
-
-	@DeleteMapping(path = "/{codeDep}")
-	public Departement deleteDepartement(@PathVariable String codeDep) {
-		Departement dep = departementRepository.findById(codeDep)
-				.orElseThrow(() -> new ResourceNotFoundException("Departement", "codeDep", codeDep));
-		departementRepository.delete(dep);
-		return dep;
-	}
-
-	@PostMapping(path = "/add")
-	public Departement addDepartement(@Valid @RequestBody DepartementDto departement) {
-		Departement dep = new Departement();
-		dep.setCodeDep(departement.getCodeDep());
-		dep.setNom(departement.getNom());
-		
-		Departement dep1 = departementRepository.save(dep);
-		logger.debug("New department created with codeDep {} !", dep1.getCodeDep());
+		@PostMapping(path="/add")
+		public Departement addDepartement (@Valid @RequestBody DepartementDto departement) {
+	  Departement dep = new Departement();
+	  dep.setCodeDep(departement.getCodeDep());
+	  dep.setNom(departement.getNom());
+	  
+	  Departement dep1 = departementRepository.save(dep);
+	  logger.debug("New department created with codeDep {} !", dep1.getCodeDep());
 		return dep1;
-	}
-
+		}
+		
+		
+			
 }
