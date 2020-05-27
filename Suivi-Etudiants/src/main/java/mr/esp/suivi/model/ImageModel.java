@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
+
+import mr.esp.suivi.model.Etudiant;
 
 
 
@@ -23,9 +26,19 @@ public class ImageModel {
 	
 	@Lob
 	private byte[] image;
+	
+	@OneToOne
+	private Etudiant etudiant;
+	
+	
+	public Etudiant getEtudiant() {
+		return etudiant;
+	}
 
-	
-	
+	public void setEtudiant(Etudiant etudiant) {
+		this.etudiant = etudiant;
+	}
+
 	public Integer getId() {
 		return id;
 	}

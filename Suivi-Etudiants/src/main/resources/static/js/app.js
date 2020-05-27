@@ -28,10 +28,7 @@ $(".custom-file-input").on("change", function() {
 });
 
 $("#doCreateButton").on("click", function(event) {
-<<<<<<< HEAD
-	  event.preventDefault();
-	  var sJSON = getPatientJson();
-=======
+
   event.preventDefault();
   var sJSON = getPatientJson();
 
@@ -56,7 +53,6 @@ $("#doCreateButton").on("click", function(event) {
             }
          });
       });
->>>>>>> 2b10923c8b059f5838d8af815e2d1c59b3a0e098
 
 	  $.ajax({
 	    type : "POST",

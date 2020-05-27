@@ -23,8 +23,8 @@ import mr.esp.springdemo.repository.Etabli_PartenaireRepository;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path="/ecole")
-public class Etabli_PartenaireController {
-	 private static final Logger logger = LoggerFactory.getLogger(Etabli_PartenaireController.class);
+public class EtablissementPartenaireController {
+	 private static final Logger logger = LoggerFactory.getLogger(EtablissementPartenaireController.class);
 
 	 @Autowired
 		private Etabli_PartenaireRepository etabli_PartenaireRepository;
