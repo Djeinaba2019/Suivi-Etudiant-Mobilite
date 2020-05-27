@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  
+
+  <title>Hello, ESP!</title>
+</head>
+<body>
+	
+  <div class="container">
+    <div class="row">
+    	<div class="col-sm-8">
+    		<h3 class="mb-2">List des &eacute;coles</h3>
+        </div>
+    </div>
+    <div class="table-responsive">
+  		<table class="table " id="listEcoles">
+    		<thead>
+				<tr>
+				  <th scope="col">pays</th>
+			      <th scope="col">adresse</th>
+			      <th scope="col">email</th>
+			      <th scope="col">nom</th>
+			      <th scope="col">quotas</th>
+			      <th scope="col">site web</th>
+			      <th scope="col">telephone</th>
+			      <th scope="col">Type Accord</th>
+			      <th scope="col">ville</th>
+				  <th scope="col">Specialite</th>
+				  <th>Action</th>
+				</tr>
+				</thead>  			
+ 			<tbody>
+				<tr let *ngFor="let ecole of Ecoles | async">
+				  <td>{{ecole.pays}}</td>
+				  <td>{{ecole.adresse}}</td>
+				  <td>{{ecole.email}}</td>
+				  <td>{{ecole.nom}}</td>
+				  <td>{{ecole.quotas}}</td>
+				  <td>{{ecole.site_web}}</td>
+				  <td>{{ecole.telephone}}</td>
+				  <td>{{ecole.type_Accords}}</td>
+				  <td>{{ecole.ville}}</td>
+				  <td>{{ecole.specialite}}</td>	
+				  <td><button class="btn btn-danger" (click)="SuppressionEcole(ecole.id)">supprimer</button></td> 		      
+			    </tr>
+			</tbody>
+  		</table>
+	</div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <!-- jQuery , Popper, Bootstrap -->
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/popper.js/dist/popper.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  
+</body>
+</html>
