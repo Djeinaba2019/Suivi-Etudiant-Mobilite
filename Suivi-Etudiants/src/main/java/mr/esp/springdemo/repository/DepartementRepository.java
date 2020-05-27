@@ -1,8 +1,8 @@
-package mr.esp.suivi.repository;
+package mr.esp.springdemo.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import mr.esp.suivi.model.Departement;
+import mr.esp.springdemo.model.Departement;
 
 public interface DepartementRepository extends CrudRepository<Departement, String>{
 

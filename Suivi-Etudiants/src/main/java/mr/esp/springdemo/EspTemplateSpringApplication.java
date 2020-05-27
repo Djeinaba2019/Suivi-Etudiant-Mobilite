@@ -1,4 +1,4 @@
-package mr.esp.suivi;
+package mr.esp.springdemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

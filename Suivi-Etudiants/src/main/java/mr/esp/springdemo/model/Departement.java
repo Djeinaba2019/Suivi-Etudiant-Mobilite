@@ -1,4 +1,4 @@
-package mr.esp.suivi.model;
+package mr.esp.springdemo.model;
 
 import java.util.Collection;
 
@@ -23,16 +23,18 @@ public class Departement {
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-	public Collection<Etudiant> getEtudiants() {
-		return etudiants;
+	
+	public Collection<EtablissementPartenaire> getEcolesPartenaire() {
+		return ecolesPartenaire;
 	}
-	public void setEtudiants(Collection<Etudiant> etudiants) {
-		this.etudiants = etudiants;
+	public void setEcolesPartenaire(Collection<EtablissementPartenaire> ecolesPartenaire) {
+		this.ecolesPartenaire = ecolesPartenaire;
 	}
+
 	@Id
 	private String codeDep;
 	private String nom ;
 	@OneToMany
-    private Collection <Etudiant> etudiants;
+    private Collection <EtablissementPartenaire> ecolesPartenaire;
 	
 }
