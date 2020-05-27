@@ -14,7 +14,7 @@ import { Etudiant } from '../etudiant';
 })
 export class FormComponent implements OnInit {
 
-  etudiant: Etudiant = {matricule: 1800, nom: '', prenom:'',nni:'',telephone:'',email:'',dateDeNaissance:'', typeMobilite:{typeMobilite_Id:1,libelle:''},departement:{codeDep:'',nom:'',etudiants:[]},choix1:{id:1,nom:''}, choix2:{id:1,nom:''}, choix3:{id:1,nom:''}};
+  etudiant: Etudiant = {matricule: 1800, nom: 's', prenom:'s',nni:'5',telephone:'5',email:'s',dateDeNaissance:'1999-1-1', typeMobilite:{typeMobilite_Id:1,libelle:''},departement:{codeDep:'IRT',nom:'',etudiants:[]},choix1:{id:1,nom:''}, choix2:{id:1,nom:''}, choix3:{id:1,nom:''}};
   submitted = false;
   departements: Observable<Departement[]>;
   typeMobili: Observable<TypeMobilite[]>;
