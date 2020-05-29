@@ -61,7 +61,7 @@ public class EtablissementPartenaireController {
 			e.setPays(etablissement.getPays());
 			e.setVille(etablissement.getVille());
 			e.setType_Accords(etablissement.getType_Accords());
-			e.setDate_Accords(etablissement.getDate_Accords());
+			e.setSpecialite(etablissement.getSpecialite());
 			e.setDepartements(etablissement.getDepartements());
 			
 			
