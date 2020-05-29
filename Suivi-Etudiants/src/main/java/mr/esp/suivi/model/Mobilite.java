@@ -71,14 +71,7 @@ public class Mobilite {
 			this.departement = departement;
 		}
 
-		public String getTypeMobilité() {
-			return TypeMobilite;
-		}
-
-		public void setTypeMobilité(String typeMobilité) {
-			TypeMobilite = typeMobilité;
-		}
-
+		
 		
 		public Mobilite(Date annee, Departement departement, Collection<EtablissementPartenaire> ecoles,
 				String typeMobilite) {

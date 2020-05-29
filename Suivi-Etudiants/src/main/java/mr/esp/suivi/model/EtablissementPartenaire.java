@@ -128,16 +128,17 @@ public void setType_Accords(String type_Accords) {
 	this.type_Accords = type_Accords;
 }
 
-    public Collection<Etudiant> getEtudiants() {
-	return etudiants;
-}
-
-public void setEtudiants(Collection<Etudiant> etudiants) {
-	this.etudiants = etudiants;
-}
 
 	@OneToMany
-    private Collection<Etudiant> etudiants;
+    private Collection<Departement> departements;
+
+	public Collection<Departement> getDepartements() {
+		return departements;
+	}
+
+	public void setDepartements(Collection<Departement> departements) {
+		this.departements = departements;
+	}
     
 
 }

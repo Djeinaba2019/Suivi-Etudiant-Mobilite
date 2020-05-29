@@ -62,6 +62,7 @@ public class EtablissementPartenaireController {
 			e.setVille(etablissement.getVille());
 			e.setType_Accords(etablissement.getType_Accords());
 			e.setDate_Accords(etablissement.getDate_Accords());
+			e.setDepartements(etablissement.getDepartements());
 			
 			
 			EtablissementPartenaire res = etabli_PartenaireRepository.save(e);

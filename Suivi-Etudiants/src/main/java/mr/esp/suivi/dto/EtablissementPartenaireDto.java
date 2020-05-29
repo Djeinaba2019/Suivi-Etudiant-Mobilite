@@ -9,6 +9,7 @@ import javax.validation.constraints.PastOrPresent;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import mr.esp.suivi.model.Departement;
 import mr.esp.suivi.model.Etudiant;
 
 
@@ -94,12 +95,13 @@ public class EtablissementPartenaireDto {
 	public void setSite_web(String site_web) {
 		this.site_web = site_web;
 	}
-	private Collection<Etudiant> etudiants;
+	public Collection<Departement> getDepartements() {
+		return departements;
+	}
+	public void setDepartements(Collection<Departement> departements) {
+		this.departements = departements;
+	}
+	private Collection<Departement> departements;
 
-	public Collection<Etudiant> getEtudiants() {
-		return etudiants;
-	}
-	public void setEtudiants(Collection<Etudiant> etudiants) {
-		this.etudiants = etudiants;
-	}
+
 }

@@ -6,13 +6,6 @@ import mr.esp.suivi.model.Mobilite;
 
 public class ChoixDto {
 
-	 public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	public Etudiant getEntudiant() {
 		return entudiant;
@@ -46,7 +39,7 @@ public class ChoixDto {
 		this.mobilite3 = mobilite3;
 	}
 
-	private Integer id;
+	
 		
 		private Etudiant entudiant;
 		
