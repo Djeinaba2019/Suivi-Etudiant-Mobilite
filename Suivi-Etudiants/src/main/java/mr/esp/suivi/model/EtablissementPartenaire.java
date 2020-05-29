@@ -2,11 +2,13 @@ package mr.esp.suivi.model;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -36,16 +38,28 @@ private String Pays ;
 
 private String type_Accords;
 
+private String Specialite;
 
-@Temporal(TemporalType.DATE)
-private Date date_Accords;
+@OneToOne(
+	    cascade = CascadeType.ALL)
+private ImageModel photo;
 
-public Date getDate_Accords() {
-	return date_Accords;
+
+
+public String getSpecialite() {
+	return Specialite;
 }
 
-public void setDate_Accords(Date date_Accords) {
-	this.date_Accords = date_Accords;
+public void setSpecialite(String specialite) {
+	Specialite = specialite;
+}
+
+public ImageModel getPhoto() {
+	return photo;
+}
+
+public void setPhoto(ImageModel photo) {
+	this.photo = photo;
 }
 
 public Integer getId() {
@@ -139,6 +153,31 @@ public void setType_Accords(String type_Accords) {
 	public void setDepartements(Collection<Departement> departements) {
 		this.departements = departements;
 	}
+
+	public EtablissementPartenaire(String nom, int quotas, String email, String telephone, String adresse,
+			String site_web, String ville, String pays, String type_Accords, String specialite, ImageModel photo,
+			Collection<Departement> departements) {
+		super();
+		this.nom = nom;
+		this.quotas = quotas;
+		this.email = email;
+		this.telephone = telephone;
+		this.adresse = adresse;
+		this.site_web = site_web;
+		this.ville = ville;
+		Pays = pays;
+		this.type_Accords = type_Accords;
+		Specialite = specialite;
+		this.photo = photo;
+		this.departements = departements;
+	}
+
+	public EtablissementPartenaire() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
     
 
 }

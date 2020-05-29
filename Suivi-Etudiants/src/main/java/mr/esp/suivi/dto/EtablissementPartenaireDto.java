@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sun.istack.NotNull;
 
 import mr.esp.suivi.model.Departement;
 import mr.esp.suivi.model.Etudiant;
@@ -48,27 +49,27 @@ public class EtablissementPartenaireDto {
 	private String Pays ;
 	@NotBlank
 	private String type_Accords;
-	@PastOrPresent
-	@JsonFormat(pattern="dd-MM-yyyy")
-	private Date date_Accords;
+    @NotNull
 	private int quotas;
 	@NotBlank
 	private String email;
 	@NotBlank
 	private String telephone;
+	private String Specialite;
+	private Collection<Departement> departements;
 	
-	public Date getDate_Accords() {
-		return date_Accords;
-	}
-	public void setDate_Accords(Date date_Accords) {
-		this.date_Accords = date_Accords;
-	}
 	private String adresse;
 	
 	private String site_web;
 
 	
-	  public int getQuotas() { return quotas; } public void setQuotas(int quotas) {
+	  public String getSpecialite() {
+		return Specialite;
+	}
+	public void setSpecialite(String specialite) {
+		Specialite = specialite;
+	}
+	public int getQuotas() { return quotas; } public void setQuotas(int quotas) {
 	  this.quotas = quotas; }
 	 
 	public String getEmail() {
@@ -101,7 +102,27 @@ public class EtablissementPartenaireDto {
 	public void setDepartements(Collection<Departement> departements) {
 		this.departements = departements;
 	}
-	private Collection<Departement> departements;
+	public EtablissementPartenaireDto(@NotBlank String nom, @NotBlank String ville, @NotBlank String pays,
+			@NotBlank String type_Accords, int quotas, @NotBlank String email, @NotBlank String telephone,
+			String specialite, Collection<Departement> departements, String adresse, String site_web) {
+		super();
+		this.nom = nom;
+		this.ville = ville;
+		Pays = pays;
+		this.type_Accords = type_Accords;
+		this.quotas = quotas;
+		this.email = email;
+		this.telephone = telephone;
+		Specialite = specialite;
+		this.departements = departements;
+		this.adresse = adresse;
+		this.site_web = site_web;
+	}
+	public EtablissementPartenaireDto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
 
 
 }

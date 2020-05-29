@@ -32,5 +32,16 @@ public class Affectation {
  private Etudiant etudiant;
 	@OneToOne
  private Mobilite mobilite;
+	public Affectation(Etudiant etudiant, Mobilite mobilite) {
+		super();
+		this.etudiant = etudiant;
+		this.mobilite = mobilite;
+	}
+	public Affectation() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
  
 }

@@ -52,6 +52,17 @@ public class Choix {
 	public void setMobilite3(Mobilite mobilite3) {
 		this.mobilite3 = mobilite3;
 	}
+	public Choix(Etudiant entudiant, Mobilite mobilite1, Mobilite mobilite2, Mobilite mobilite3) {
+		super();
+		this.entudiant = entudiant;
+		this.mobilite1 = mobilite1;
+		this.mobilite2 = mobilite2;
+		this.mobilite3 = mobilite3;
+	}
+	public Choix() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 
 
