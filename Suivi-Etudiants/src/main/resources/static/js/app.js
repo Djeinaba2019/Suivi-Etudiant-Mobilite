@@ -8,7 +8,7 @@ function getPatientJson() {
     quotas:$('#quotas').val(),
     site_web:$('#site_web').val(),
     telephone:$('#telephone').val(),
-    type_accords:$('#type_accords').val(),
+    type_Accords:$('#type_accords').val(),
     ville:$('#ville').val(),
     specialite:$('#Specialite').val(),
     
@@ -52,7 +52,6 @@ $("#doCreateButton").on("click", function(event) {
               console.log(error);
             }
          });
-      });
 
 	  $.ajax({
 	    type : "POST",
@@ -99,7 +98,8 @@ $("#doCreateButton").on("click", function(event) {
 	      console.log(error);
 	    }
 	  });
-	});
+});
+	
 $("#listEcoles").ready(function() {
 	
 	$.ajax({

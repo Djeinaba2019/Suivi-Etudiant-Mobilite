@@ -47,7 +47,6 @@ public class EtablissementPartenaireDto {
 	private String ville;
 	@NotBlank
 	private String Pays ;
-	@NotBlank
 	private String type_Accords;
     @NotNull
 	private int quotas;
@@ -103,7 +102,7 @@ public class EtablissementPartenaireDto {
 		this.departements = departements;
 	}
 	public EtablissementPartenaireDto(@NotBlank String nom, @NotBlank String ville, @NotBlank String pays,
-			@NotBlank String type_Accords, int quotas, @NotBlank String email, @NotBlank String telephone,
+			String type_Accords, int quotas, @NotBlank String email, @NotBlank String telephone,
 			String specialite, Collection<Departement> departements, String adresse, String site_web) {
 		super();
 		this.nom = nom;
@@ -122,6 +121,7 @@ public class EtablissementPartenaireDto {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	
 
 
