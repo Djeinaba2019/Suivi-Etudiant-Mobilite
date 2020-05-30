@@ -24,18 +24,18 @@ public class Mobilite {
 	   @OneToOne
 	    private Departement departement;
 	   
-	   @OneToMany
-		private Collection <EtablissementPartenaire> ecoles;
+	   @OneToOne
+		private EtablissementPartenaire ecoles;
 	    
 	    private String TypeMobilite;
 	    
 	    
 
-		public Collection<EtablissementPartenaire> getEcoles() {
+		public EtablissementPartenaire getEcoles() {
 			return ecoles;
 		}
 
-		public void setEcoles(Collection<EtablissementPartenaire> ecoles) {
+		public void setEcoles(EtablissementPartenaire ecoles) {
 			this.ecoles = ecoles;
 		}
 
@@ -73,7 +73,7 @@ public class Mobilite {
 
 		
 		
-		public Mobilite(Date annee, Departement departement, Collection<EtablissementPartenaire> ecoles,
+		public Mobilite(Date annee, Departement departement, EtablissementPartenaire ecoles,
 				String typeMobilite) {
 			super();
 			this.annee = annee;

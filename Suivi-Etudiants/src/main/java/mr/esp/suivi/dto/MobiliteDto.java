@@ -3,6 +3,8 @@ package mr.esp.suivi.dto;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 
@@ -18,11 +20,11 @@ public class MobiliteDto {
 	   @JsonFormat(pattern="dd-MM-yyyy")
 	    private Date annee;
 	   
-	  
+	   	@OneToOne
 	    private Departement departement;
 	   
-	 
-		private Collection <EtablissementPartenaire> ecoles;
+	    @OneToOne
+		private EtablissementPartenaire ecoles;
 		@NotBlank
 	    private String TypeMobilite;
 		public Date getAnnee() {
@@ -37,10 +39,11 @@ public class MobiliteDto {
 		public void setDepartement(Departement departement) {
 			this.departement = departement;
 		}
-		public Collection<EtablissementPartenaire> getEcoles() {
+		
+		public EtablissementPartenaire getEcoles() {
 			return ecoles;
 		}
-		public void setEcoles(Collection<EtablissementPartenaire> ecoles) {
+		public void setEcoles(EtablissementPartenaire ecoles) {
 			this.ecoles = ecoles;
 		}
 		public String getTypeMobilite() {
@@ -49,5 +52,19 @@ public class MobiliteDto {
 		public void setTypeMobilite(String typeMobilite) {
 			TypeMobilite = typeMobilite;
 		}
+		public MobiliteDto(@PastOrPresent Date annee, Departement departement,
+				EtablissementPartenaire ecoles, @NotBlank String typeMobilite) {
+			super();
+			this.annee = annee;
+			this.departement = departement;
+			this.ecoles = ecoles;
+			TypeMobilite = typeMobilite;
+		}
+		public MobiliteDto() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+		
+		
 	    
 }

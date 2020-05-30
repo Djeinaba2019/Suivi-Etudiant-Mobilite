@@ -33,9 +33,9 @@
                     <form method="POST">
                         <div class="input-group">
                           <div class="rs-select2 js-select-simple select--no-search">
-                              <select name="gender">
-                                  <option disabled="disabled" selected="selected">Ecole Partenaire</option>
-                                  <option>En construction</option>
+                              <select name="ecole" id ="ecole">
+                                  <option disabled="disabled" selected="selected" value="">Ecole Partenaire</option>
+                                  
                               </select>
                               <div class="select-dropdown"></div>
                           </div>
@@ -43,14 +43,14 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-2 js-datepicker" type="text" placeholder="Année" name="annee">
+                                    <input class="input--style-2 js-datepicker" type="text" placeholder="Année" name="annee" id="annee">
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="Type">
+                                        <select name="Type" id="type_mobilite">
                                             <option selected>Type Mobilité</option>
                                             <option>DD</option>
                                             <option>SE</option>
@@ -64,7 +64,7 @@
                         <div class="input-group">
                             <div class="rs-select2 js-select-simple select--no-search">
                                 <select name="class">
-                                    <option selected>Departement</option>
+                                    <option selected id="departement">Departement</option>
                                     <option>IRT</option>
                                     <option>MPG</option>
                                     <option>GCH</option>
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="p-t-30">
-                            <button class="btn btn--radius btn--green" type="submit">Enregistrer</button>
+                            <button class="btn btn--radius btn--green" type="submit" id="enregistrer">Enregistrer</button>
                         </div>
                     </form>
                 </div>
@@ -92,6 +92,7 @@
 
     <!-- Main JS-->
     <script src="js/global.js"></script>
+    <script src="js/mobilite.js"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 

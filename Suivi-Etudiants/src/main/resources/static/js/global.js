@@ -66,5 +66,10 @@
         console.log(err);
     }
     
+    
 
 })(jQuery);
+
+
+
+
