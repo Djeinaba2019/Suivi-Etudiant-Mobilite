@@ -2,6 +2,8 @@ package mr.esp.suivi.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -13,6 +15,7 @@ import javax.persistence.TemporalType;
 
 public class Etudiant {
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer matricule;
 
 	public Integer getMatricule() {
@@ -90,6 +93,23 @@ public class Etudiant {
 
 	@OneToOne
 	private Departement departement;
+
+	public Etudiant(String nom, String prenom, Date dateDeNaissance, String telephone, String email,
+			String nni, Departement departement) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateDeNaissance = dateDeNaissance;
+		this.telephone = telephone;
+		this.email = email;
+		this.nni = nni;
+		this.departement = departement;
+	}
+
+	public Etudiant() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 
 
