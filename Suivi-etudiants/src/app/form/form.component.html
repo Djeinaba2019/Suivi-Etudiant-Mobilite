@@ -1,9 +1,10 @@
-<h3>Create Etudiant</h3>
+
 <div [hidden]="submitted" style="width: 400px;">
-
+  <h3 class="mb-0">Formulaire de candidature Mobilité Internationale</h3>
   <form (ngSubmit)="onSubmit()">
-
-
+   
+          
+    <h4><b>Identité de l’étudiant(e)</b></h4>
      <div class="form-group">
         <label for="name">Matricule</label>
         <input type="number" class="form-control" placeholder="Matricule"  id="matricule" required [(ngModel)]="etudiant.matricule" name="matricule">
@@ -39,37 +40,41 @@
         <label for="name">NNI</label>
         <input type="text" class="form-control" placeholder="Nni"  id="nni" required [(ngModel)]="etudiant.nni" name="nni">
       </div>
+    
 
-        
-          
-      <div class="form-group">
+      <h4><b>Département à l'ESP</b></h4>
+      <div class="form-group" *ngIf="etudiant">
         <label for="name">Departement</label>
-        <select  class="form-control"  id="departement" required [(ngModel)]="etudiant.departement.codeDep" name="codeDep" >
+        <select  class="form-control"  id="departement" required [(ngModel)]="etudiant.departement.codeDep" name="codeDep">
             <option *ngFor="let departement of departements | async" [value]="departement.codeDep">{{departement.nom}}</option>
           </select></div>
-
-          <div class="form-group">
+          <h4><b>Mobilités</b></h4>
+          <p>Veuillez exprimer ci-dessous les vœux de votre mobilité par ordre de préférence en se basant sur les informations disponibles dans le "Passeport de Mobilité</p>
+          <div class="form-group" *ngIf="etudiant">
             <label for="name">Type de mobilité</label>
             <select  class="form-control" id="typeMobilite" required [(ngModel)]="etudiant.typeMobilite.typeMobilite_Id" name="typeMobilite_Id">
                 <option *ngFor="let typeMobilite of typeMobili | async" [value]="typeMobilite.typeMobilite_Id">{{typeMobilite.libelle}}</option>
             </select></div>
 
-<div class="form-group">
+<div class="form-group" *ngIf="etudiant">
         <label for="name">Choix 1</label>
         <select  class="form-control"  id="choix1" required [(ngModel)]="etudiant.choix1.id" name="id" >
             <option *ngFor="let choix1 of ecoles | async" [value]="choix1.id">{{choix1.nom}}</option>
         </select></div>
-        <div class="form-group">
+        <div class="form-group" *ngIf="etudiant">
           <label for="name">Choix 2</label>
           <select  class="form-control"  id="choix2" required [(ngModel)]="etudiant.choix2.id" name="id" >
               <option *ngFor="let choix2 of ecoles | async" [value]="choix2.id">{{choix2.nom}}</option>
           </select></div>
-          <div class="form-group">
+          <div class="form-group" *ngIf="etudiant">
             <label for="name">Choix 3</label>
             <select  class="form-control"  id="choix3" required [(ngModel)]="etudiant.choix3.id" name="id" >
                 <option *ngFor="let choix3 of ecoles | async" [value]="choix3.id">{{choix3.nom}}</option>
-            </select></div>
-     <button type="submit" class="btn btn-success">Submit</button>
+            </select></div>   
+   
+         
+
+     <button type="submit" class="btn btn-success">Envoyez</button>
       </form>
    </div>
 

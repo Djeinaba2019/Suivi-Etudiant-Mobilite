@@ -1,53 +1,21 @@
 package mr.esp.suivi.dto;
 
 
+import java.util.Collection;
 import java.util.Date;
 
-import javax.persistence.Basic;
-import javax.persistence.FetchType;
-import javax.persistence.Lob;
-import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
 
-import org.springframework.web.multipart.MultipartFile;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
 
-import mr.esp.suivi.model.ImageModel;
+import mr.esp.suivi.model.Departement;
+import mr.esp.suivi.model.Etudiant;
 
 
 public class EtablissementPartenaireDto {
 	
-	
-	private String nom;
-	
-	private String ville;
-	
-	private String Pays ;
-	
-	private String type_Accords;
-	
-	private int quotas;
-	
-	private String email;
-	
-	private String telephone;
-	
-	private String adresse;
-	
-	private String site_web;
-	
-	private String Specialite;
-
-	private ImageModel photo;
-	
-	public ImageModel getPhoto() {
-		return photo;
-	}
-	
-	public void setPhoto(ImageModel photo) {
-		this.photo=photo;
-	}
 	
 	public String getNom() {
 		return nom;
@@ -73,20 +41,36 @@ public class EtablissementPartenaireDto {
 	public void setType_Accords(String type_Accords) {
 		this.type_Accords = type_Accords;
 	}
+	@NotBlank
+	private String nom;
+	@NotBlank
+	private String ville;
+	@NotBlank
+	private String Pays ;
+	private String type_Accords;
+    @NotNull
+	private int quotas;
+	@NotBlank
+	private String email;
+	@NotBlank
+	private String telephone;
+	private String Specialite;
+	private Collection<Departement> departements;
 	
-	public String getSpecialite() {
+	private String adresse;
+	
+	private String site_web;
+
+	
+	  public String getSpecialite() {
 		return Specialite;
 	}
 	public void setSpecialite(String specialite) {
 		Specialite = specialite;
 	}
-	
-	public int getQuotas() {
-		return quotas;
-	}
-	public void setQuotas(int quotas) {
-		this.quotas = quotas;
-	}
+	public int getQuotas() { return quotas; } public void setQuotas(int quotas) {
+	  this.quotas = quotas; }
+	 
 	public String getEmail() {
 		return email;
 	}
@@ -111,27 +95,34 @@ public class EtablissementPartenaireDto {
 	public void setSite_web(String site_web) {
 		this.site_web = site_web;
 	}
-	public EtablissementPartenaireDto( String nom,  String ville,  String pays,
-			 String type_Accords, int quotas,  String email,  String telephone,
-			 String adresse,  String site_web,  String specialite , ImageModel photo
-			) {
+	public Collection<Departement> getDepartements() {
+		return departements;
+	}
+	public void setDepartements(Collection<Departement> departements) {
+		this.departements = departements;
+	}
+	public EtablissementPartenaireDto(@NotBlank String nom, @NotBlank String ville, @NotBlank String pays,
+			String type_Accords, int quotas, @NotBlank String email, @NotBlank String telephone,
+			String specialite, Collection<Departement> departements, String adresse, String site_web) {
 		super();
 		this.nom = nom;
 		this.ville = ville;
-		this.Pays = pays;
+		Pays = pays;
 		this.type_Accords = type_Accords;
 		this.quotas = quotas;
 		this.email = email;
 		this.telephone = telephone;
+		Specialite = specialite;
+		this.departements = departements;
 		this.adresse = adresse;
 		this.site_web = site_web;
-		this.Specialite = specialite;
-		this.photo=photo;
-		
 	}
 	public EtablissementPartenaireDto() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
+	
+
+
 }

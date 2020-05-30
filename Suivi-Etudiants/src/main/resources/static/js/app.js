@@ -8,7 +8,7 @@ function getPatientJson() {
     quotas:$('#quotas').val(),
     site_web:$('#site_web').val(),
     telephone:$('#telephone').val(),
-    type_accords:$('#type_accords').val(),
+    type_Accords:$('#type_accords').val(),
     ville:$('#ville').val(),
     specialite:$('#Specialite').val(),
     
@@ -28,10 +28,7 @@ $(".custom-file-input").on("change", function() {
 });
 
 $("#doCreateButton").on("click", function(event) {
-<<<<<<< HEAD
-	  event.preventDefault();
-	  var sJSON = getPatientJson();
-=======
+
   event.preventDefault();
   var sJSON = getPatientJson();
 
@@ -55,8 +52,6 @@ $("#doCreateButton").on("click", function(event) {
               console.log(error);
             }
          });
-      });
->>>>>>> 2b10923c8b059f5838d8af815e2d1c59b3a0e098
 
 	  $.ajax({
 	    type : "POST",
@@ -103,7 +98,8 @@ $("#doCreateButton").on("click", function(event) {
 	      console.log(error);
 	    }
 	  });
-	});
+});
+	
 $("#listEcoles").ready(function() {
 	
 	$.ajax({

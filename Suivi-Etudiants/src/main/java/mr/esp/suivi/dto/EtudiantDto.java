@@ -1,14 +1,22 @@
 package mr.esp.suivi.dto;
 
 import java.util.Date;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import mr.esp.suivi.model.Departement;
+import mr.esp.suivi.model.EtablissementPartenaire;
+import mr.esp.suivi.model.ImageModel;
+
+
 public class EtudiantDto {
+	@NotBlank
 	private Integer matricule;
+	@PastOrPresent
+	@JsonFormat(pattern="dd-MM-yyyy")
+	    private Date dateDeNaissance;
 	public Integer getMatricule() {
 		return matricule;
 	}
@@ -45,12 +53,6 @@ public class EtudiantDto {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhoto() {
-		return photo;
-	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
 	public String getNni() {
 		return nni;
 	}
@@ -60,15 +62,26 @@ public class EtudiantDto {
 	@NotBlank
 	private String nom;
 	@NotBlank
+	private Departement departement;
+	public Departement getDepartement() {
+		return departement;
+	}
+	public void setDepartement(Departement departement) {
+		this.departement = departement;
+	}
+	@NotBlank
 	private String prenom;
-	@PastOrPresent
-	@JsonFormat(pattern="dd-MM-yyyy")
-	    private Date dateDeNaissance;
 	 private String telephone;
 	 @NotBlank
 	 private String email;
-	    private String photo;
 	    private String nni;
-
-
+	    
+	  private ImageModel image;
+	    public ImageModel getImage() {
+		return image;
+	}
+	public void setImage(ImageModel image) {
+		this.image = image;
+	}
+	
 }

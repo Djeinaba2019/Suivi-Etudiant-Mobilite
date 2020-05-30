@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Suivi-etudiants"
+    }
+  },
+  "defaultProject": "Suivi-etudiants",
+  "cli": {
+    "analytics": false
+  }
 }
