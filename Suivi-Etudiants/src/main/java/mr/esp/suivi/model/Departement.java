@@ -36,5 +36,17 @@ public class Departement {
 	private String nom ;
 	@OneToMany
     private Collection <EtablissementPartenaire> ecolesPartenaire;
+	public Departement(String codeDep, String nom, Collection<EtablissementPartenaire> ecolesPartenaire) {
+		super();
+		this.codeDep = codeDep;
+		this.nom = nom;
+		this.ecolesPartenaire = ecolesPartenaire;
+	}
+	public Departement() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
 	
 }
