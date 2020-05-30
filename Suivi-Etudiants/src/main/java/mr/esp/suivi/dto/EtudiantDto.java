@@ -12,7 +12,7 @@ import mr.esp.suivi.model.ImageModel;
 
 
 public class EtudiantDto {
-	@NotBlank
+	
 	private Integer matricule;
 	@PastOrPresent
 	@JsonFormat(pattern="dd-MM-yyyy")
@@ -61,7 +61,7 @@ public class EtudiantDto {
 	}
 	@NotBlank
 	private String nom;
-	@NotBlank
+
 	private Departement departement;
 	public Departement getDepartement() {
 		return departement;
