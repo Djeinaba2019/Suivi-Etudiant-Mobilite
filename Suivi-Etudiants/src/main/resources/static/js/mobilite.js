@@ -5,7 +5,7 @@ function getPatientJson() {
 	    typeMobilite:$('#type_mobilite').val(),
 	    annee:$('#annee').val(),	    
 	    departement:$('#departement').val(),  
-	    ecoles:$('#ecole').val(),
+	    ecole:$('#ecole').val(),
 	  };
 	  return JSON.stringify(formData);
 	}

@@ -47,8 +47,8 @@ public class MobiliteDto {
 		public String getecole() {
 			return ecole;
 		}
-		public void setId_ecole(String id_ecole) {
-			this.ecole = id_ecole;
+		public void setId_ecole(String ecoles) {
+			this.ecole = ecoles;
 		}
 		public Date getAnnee() {
 			return annee;
