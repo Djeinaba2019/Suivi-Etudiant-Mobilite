@@ -18,6 +18,8 @@ import mr.esp.suivi.dto.AffectationDto;
 import mr.esp.suivi.exception.ResourceNotFoundException;
 import mr.esp.suivi.model.Affectation;
 import mr.esp.suivi.repository.AffectationRepository;
+import mr.esp.suivi.repository.EtudiantRepository;
+import mr.esp.suivi.repository.MobiliteRepository;
 
 
 @RestController
@@ -27,6 +29,10 @@ public class AffectationController {
 
 	@Autowired
 	private AffectationRepository affectationRepository;
+	@Autowired
+	private EtudiantRepository etudiantRepo;
+	@Autowired
+	private MobiliteRepository mobRepo;
 	
 	@GetMapping(path = "/all")
 	public Iterable<Affectation> getAllAffectation() {
@@ -50,11 +56,11 @@ public class AffectationController {
 	@PostMapping(path = "/add")
 	public Affectation addAffectation(@Valid @RequestBody AffectationDto affectationDto) {
 		Affectation affectation = new Affectation();
-		affectation.setEtudiant(affectationDto.getEtudiant());
-		affectation.setMobilite(affectationDto.getMobilite());
+		affectation.setEtudiant(etudiantRepo.findByEMail(affectationDto.getEtudiant()).orElseThrow());
+		affectation.setMobilite(mobRepo.findById(affectationDto.getMobilite()).orElseThrow());
 		Affectation affectation1 = affectationRepository.save(affectation);
 		logger.debug("New Affectation1 created with id {} !", affectation1.getId());
 		return affectation1;
 	}
-	
+
 }

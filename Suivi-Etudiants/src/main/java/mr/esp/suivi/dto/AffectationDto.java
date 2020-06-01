@@ -7,21 +7,33 @@ import mr.esp.suivi.model.Mobilite;
 
 public class AffectationDto {
 	
-	public Etudiant getEtudiant() {
+	public String getEtudiant() {
 		return etudiant;
 	}
-	public void setEtudiant(Etudiant etudiant) {
+	public void setEtudiant(String etudiant) {
 		this.etudiant = etudiant;
 	}
-	public Mobilite getMobilite() {
+	public int getMobilite() {
 		return mobilite;
 	}
-	public void setMobilite(Mobilite mobilite) {
+	public void setMobilite(int mobilite) {
 		this.mobilite = mobilite;
 	}
 	@NotBlank
-	 private Etudiant etudiant;
-	@NotBlank
-	 private Mobilite mobilite;
+	 private String etudiant;
+	
+	 private int mobilite;
+	public AffectationDto(@NotBlank String etudiant, @NotBlank int mobilite) {
+		super();
+		this.etudiant = etudiant;
+		this.mobilite = mobilite;
+	}
+	public AffectationDto() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+	
 
 }
