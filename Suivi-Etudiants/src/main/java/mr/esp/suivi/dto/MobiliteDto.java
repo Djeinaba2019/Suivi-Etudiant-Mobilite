@@ -3,6 +3,7 @@ package mr.esp.suivi.dto;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
@@ -20,44 +21,61 @@ public class MobiliteDto {
 	   @JsonFormat(pattern="dd-MM-yyyy")
 	    private Date annee;
 	   
-	   	@OneToOne
-	    private Departement departement;
-	   
-	    @OneToOne
-		private EtablissementPartenaire ecoles;
 		@NotBlank
-	    private String TypeMobilite;
+		private String ecole ;
+		
+		
+		@NotBlank
+		private String departement;
+		
+		@NotBlank
+		private String TypeMobilite;
+		
+		
+		
+		
+		public String getDepartement() {
+			return departement;
+		}
+		public void setDepartement(String departement) {
+			this.departement = departement;
+		}
+		
+		
+	    
+		
+		public String getecole() {
+			return ecole;
+		}
+		public void setId_ecole(String id_ecole) {
+			this.ecole = id_ecole;
+		}
 		public Date getAnnee() {
 			return annee;
 		}
 		public void setAnnee(Date annee) {
 			this.annee = annee;
 		}
-		public Departement getDepartement() {
-			return departement;
-		}
-		public void setDepartement(Departement departement) {
-			this.departement = departement;
-		}
 		
-		public EtablissementPartenaire getEcoles() {
-			return ecoles;
-		}
-		public void setEcoles(EtablissementPartenaire ecoles) {
-			this.ecoles = ecoles;
-		}
+	
 		public String getTypeMobilite() {
 			return TypeMobilite;
 		}
 		public void setTypeMobilite(String typeMobilite) {
 			TypeMobilite = typeMobilite;
 		}
-		public MobiliteDto(@PastOrPresent Date annee, Departement departement,
-				EtablissementPartenaire ecoles, @NotBlank String typeMobilite) {
+		
+		
+		
+		
+		
+		
+		public MobiliteDto(@PastOrPresent Date annee,  @NotBlank String ecole,
+				@NotBlank String departement, String typeMobilite) {
 			super();
 			this.annee = annee;
+			this.ecole = ecole;
 			this.departement = departement;
-			this.ecoles = ecoles;
 			TypeMobilite = typeMobilite;
 		}
 		public MobiliteDto() {

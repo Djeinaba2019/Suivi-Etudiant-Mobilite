@@ -29,49 +29,36 @@
             <div class="card card-2">
                 <div class="card-heading"></div>
                 <div class="card-body">
-                    <h2 class="title">MOBILITÉ INTERNATIONALE</h2>
+                    <h2 class="title">AFFECTATION MOBILITÉ INTERNATIONALE</h2>
                     <form method="POST">
                     <div class="alert alert-success d-none" role="alert" id="MobiliteFormBanner">
       </div>
+      <div class="row row-space">
+      					<div class="col-2">
                         <div class="input-group">
                           <div class="rs-select2 js-select-simple select--no-search">
-                              <select name="ecole" id="ecole">
-                                    <option selected value="">Ecole Partenaire</option>
-                                    
-                                </select>
+                              <select name="etudiant" id ="Etdiant">
+                                  <option  selected value="">Etudiant</option>
+                                  
+                              </select>
                               <div class="select-dropdown"></div>
                           </div>
                         </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-2 js-datepicker" type="text" placeholder="Année" name="annee" id="annee">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="Type" id="type_mobilite">
-                                            <option selected>Type Mobilité</option>
-                                            <option>DD</option>
-                                            <option>SE</option>
-                                            <option>autre</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                         </div>
+                         <div class="col-2">
                         <div class="input-group">
-                            <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="departement" id="departement">
-                                    <option selected value="">Departement</option>
-                                    
-                                </select>
-                                <div class="select-dropdown"></div>
-                            </div>
+                          <div class="rs-select2 js-select-simple select--no-search">
+                              <select name="mobilite" id ="mobilite">
+                                  <option  selected value="">Mobilité</option>
+                                  
+                              </select>
+                              <div class="select-dropdown"></div>
+                          </div>
                         </div>
+                         </div>
+                         </div>
+                        
+
                         <div class="p-t-30">
                             <button class="btn btn--radius btn--green" type="submit" id="enregistrer">Enregistrer</button>
                         </div>

@@ -21,7 +21,6 @@ import mr.esp.suivi.model.EtablissementPartenaire;
 import mr.esp.suivi.repository.EtablissementPartenaireRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path="/ecole")
 public class EtablissementPartenaireController {
 	 private static final Logger logger = LoggerFactory.getLogger(EtablissementPartenaireController.class);
@@ -37,12 +36,14 @@ public class EtablissementPartenaireController {
 		
 
 		@GetMapping(path="/{id}")
-		public EtablissementPartenaire getEtablissement(@PathVariable Integer id) {
-			return etabli_PartenaireRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Etablissement", "id", id));
+		public EtablissementPartenaire getEtablissement(@PathVariable String nom) {
+			return etabli_PartenaireRepository.findById(nom).orElseThrow(() -> new ResourceNotFoundException("Etablissement", "id", nom));
 		}
 		
+		
+		
 		@DeleteMapping(path="/{id}")
-		public EtablissementPartenaire deleteEtablissement(@PathVariable Integer id) {
+		public EtablissementPartenaire deleteEtablissement(@PathVariable String id) {
 			EtablissementPartenaire p = etabli_PartenaireRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Etablissement", "id", id));
 			etabli_PartenaireRepository.delete(p);
 			return p;
@@ -66,7 +67,7 @@ public class EtablissementPartenaireController {
 			
 			
 			EtablissementPartenaire res = etabli_PartenaireRepository.save(e);
-			logger.debug("New Etablissement created with id {} !", res.getId());
+			logger.debug("New Etablissement created with id {} !", res.getNom());
 			return res;
 		}
 		

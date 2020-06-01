@@ -8,7 +8,7 @@
             "showDropdowns": true,
             "autoUpdateInput": false,
             locale: {
-                format: 'DD/MM/YYYY'
+                format: 'DD-MM-YYYY'
             },
         });
     
@@ -21,7 +21,7 @@
     
         $(myCalendar).on('apply.daterangepicker',function(ev, picker){
             isClick = 0;
-            $(this).val(picker.startDate.format('DD/MM/YYYY'));
+            $(this).val(picker.startDate.format('DD-MM-YYYY'));
     
         });
     

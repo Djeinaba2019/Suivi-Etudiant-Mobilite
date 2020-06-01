@@ -1,5 +1,7 @@
 package mr.esp.suivi.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -19,7 +21,6 @@ import mr.esp.suivi.model.Departement;
 import mr.esp.suivi.repository.DepartementRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/departement")
 public class DepartementController {
 	private static final Logger logger = LoggerFactory.getLogger(DepartementController.class);
@@ -57,5 +58,8 @@ public class DepartementController {
 		logger.debug("New department created with codeDep {} !", dep1.getCodeDep());
 		return dep1;
 	}
+	
+	
+	
 
 }

@@ -10,6 +10,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Departement")
 public class Departement {
+	@Id
+	private String codeDep;
+	
+	private String nom ;
 	
 	public String getCodeDep() {
 		return codeDep;
@@ -31,16 +35,14 @@ public class Departement {
 		this.ecolesPartenaire = ecolesPartenaire;
 	}
 
-	@Id
-	private String codeDep;
-	private String nom ;
+	
 	@OneToMany
     private Collection <EtablissementPartenaire> ecolesPartenaire;
-	public Departement(String codeDep, String nom, Collection<EtablissementPartenaire> ecolesPartenaire) {
+	public Departement(String codeDep, String nom) {
 		super();
 		this.codeDep = codeDep;
 		this.nom = nom;
-		this.ecolesPartenaire = ecolesPartenaire;
+		
 	}
 	public Departement() {
 		super();

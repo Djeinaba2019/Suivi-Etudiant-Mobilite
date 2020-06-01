@@ -37,4 +37,14 @@ public class DepartementDto {
 	public void setEcolesPartenaire(Collection<EtablissementPartenaire> ecolesPartenaire) {
 		this.ecolesPartenaire = ecolesPartenaire;
 	}
+
+	public DepartementDto(String codeDep, String nom) {
+		super();
+		this.codeDep = codeDep;
+		this.nom = nom;
+	}
+	
+	
+	
+	
 }

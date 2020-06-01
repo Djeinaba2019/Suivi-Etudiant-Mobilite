@@ -3,6 +3,8 @@ package mr.esp.suivi.model;
 import java.util.Collection;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,19 +13,25 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.PastOrPresent;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Mobilite {
 		@Id
 		@GeneratedValue(strategy=GenerationType.AUTO)
 		private Integer id;
-	
-	   @Temporal(TemporalType.DATE)
+		
+		@PastOrPresent
+		@JsonFormat(pattern="dd-MM-yyyy")
 		private Date annee;
-	   
-	   @OneToOne
+		
+		
+		@OneToOne
 	    private Departement departement;
 	   
+		
 	   @OneToOne
 		private EtablissementPartenaire ecoles;
 	    
@@ -73,7 +81,8 @@ public class Mobilite {
 
 		
 		
-		public Mobilite(Date annee, Departement departement, EtablissementPartenaire ecoles,
+		public Mobilite(@PastOrPresent
+				@JsonFormat(pattern="dd-MM-yyyy") Date annee, Departement departement, EtablissementPartenaire ecoles,
 				String typeMobilite) {
 			super();
 			this.annee = annee;

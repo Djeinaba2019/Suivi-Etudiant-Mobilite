@@ -22,7 +22,6 @@ import mr.esp.suivi.model.Choix;
 import mr.esp.suivi.repository.ChoixRepository;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/choix")
 public class ChoixController {
 	private static final Logger logger = LoggerFactory.getLogger(ChoixController.class);

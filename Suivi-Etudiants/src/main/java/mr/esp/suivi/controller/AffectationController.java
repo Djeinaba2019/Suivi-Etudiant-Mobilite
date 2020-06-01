@@ -21,7 +21,6 @@ import mr.esp.suivi.repository.AffectationRepository;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/affectation")
 public class AffectationController {
 	private static final Logger logger = LoggerFactory.getLogger(AffectationController.class);

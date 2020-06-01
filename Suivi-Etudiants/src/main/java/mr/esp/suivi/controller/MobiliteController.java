@@ -1,5 +1,7 @@
 package mr.esp.suivi.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -15,17 +17,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import mr.esp.suivi.dto.MobiliteDto;
 import mr.esp.suivi.exception.ResourceNotFoundException;
+import mr.esp.suivi.model.Departement;
+import mr.esp.suivi.model.EtablissementPartenaire;
 import mr.esp.suivi.model.Mobilite;
+import mr.esp.suivi.repository.DepartementRepository;
+import mr.esp.suivi.repository.EtablissementPartenaireRepository;
 import mr.esp.suivi.repository.MobiliteRepository;
 
 @RestController
 @RequestMapping(path="/mobilite")
-@CrossOrigin(origins = "http://localhost:4200")
 public class MobiliteController {
 	private static final Logger logger = LoggerFactory.getLogger(MobiliteController.class);
 
 	 @Autowired
 		private MobiliteRepository mobiliteRepository;
+	 @Autowired
+	 	private EtablissementPartenaireRepository ecoleRepo;
+	 @Autowired
+	 	private DepartementRepository depRepo;
+        
 	 
 	 @GetMapping(path="/all")
 		public Iterable<Mobilite> getAllMobilites() {
@@ -48,11 +58,16 @@ public class MobiliteController {
 		
 		@PostMapping(path="/add")
 		public Mobilite addMobilite(@Valid @RequestBody MobiliteDto mobiliteDto) {
+			
+			
+			
           Mobilite mob = new Mobilite();
           mob.setTypeMobilite(mobiliteDto.getTypeMobilite());
           mob.setAnnee(mobiliteDto.getAnnee());
-          mob.setDepartement(mobiliteDto.getDepartement());
-		  mob.setEcoles(mobiliteDto.getEcoles());
+          mob.setDepartement(depRepo.findById(mobiliteDto.getDepartement()).orElseThrow());
+          String ecole =mobiliteDto.getecole();
+          mob.setEcoles(ecoleRepo.findByName(ecole).orElseThrow());
+          
 		  Mobilite mobilite = mobiliteRepository.save(mob);
 			logger.debug("New Mobilite created with id {} !", mobilite.getId());
 			return mobilite;

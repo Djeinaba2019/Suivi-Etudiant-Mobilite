@@ -23,7 +23,6 @@ import mr.esp.suivi.repository.EtudiantRepository;
 
 @RestController
 @RequestMapping(path="/etudiant")
-@CrossOrigin(origins = "http://localhost:4200")
 public class EtudiantController {
 	private static final Logger logger = LoggerFactory.getLogger(EtudiantController.class);
 
