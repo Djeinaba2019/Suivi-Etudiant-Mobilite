@@ -36,23 +36,13 @@ private String ville;
 
 private String Pays ;
 
-private String type_Accords;
-
-private String Specialite;
-
 @OneToOne(
 	    cascade = CascadeType.ALL)
 private ImageModel photo;
 
 
 
-public String getSpecialite() {
-	return Specialite;
-}
 
-public void setSpecialite(String specialite) {
-	Specialite = specialite;
-}
 
 public ImageModel getPhoto() {
 	return photo;
@@ -134,14 +124,6 @@ public void setPays(String pays) {
 	Pays = pays;
 }
 
-public String getType_Accords() {
-	return type_Accords;
-}
-
-public void setType_Accords(String type_Accords) {
-	this.type_Accords = type_Accords;
-}
-
 
 	@OneToMany
     private Collection<Departement> departements;
@@ -155,7 +137,7 @@ public void setType_Accords(String type_Accords) {
 	}
 
 	public EtablissementPartenaire(String nom, int quotas, String email, String telephone, String adresse,
-			String site_web, String ville, String pays, String type_Accords, String specialite, ImageModel photo,
+			String site_web, String ville, String pays, ImageModel photo,
 			Collection<Departement> departements) {
 		super();
 		this.nom = nom;
@@ -166,8 +148,6 @@ public void setType_Accords(String type_Accords) {
 		this.site_web = site_web;
 		this.ville = ville;
 		Pays = pays;
-		this.type_Accords = type_Accords;
-		Specialite = specialite;
 		this.photo = photo;
 		this.departements = departements;
 	}

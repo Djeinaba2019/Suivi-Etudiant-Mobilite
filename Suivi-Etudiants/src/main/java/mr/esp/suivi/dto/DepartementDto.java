@@ -28,15 +28,6 @@ public class DepartementDto {
 
 	private String nom ;
 
-    private Collection <EtablissementPartenaire> ecolesPartenaire;
-
-	public Collection<EtablissementPartenaire> getEcolesPartenaire() {
-		return ecolesPartenaire;
-	}
-
-	public void setEcolesPartenaire(Collection<EtablissementPartenaire> ecolesPartenaire) {
-		this.ecolesPartenaire = ecolesPartenaire;
-	}
 
 	public DepartementDto(String codeDep, String nom) {
 		super();

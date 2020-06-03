@@ -1,5 +1,7 @@
 package mr.esp.suivi.controller;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -17,7 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mr.esp.suivi.dto.EtablissementPartenaireDto;
 import mr.esp.suivi.exception.ResourceNotFoundException;
+import mr.esp.suivi.model.Departement;
 import mr.esp.suivi.model.EtablissementPartenaire;
+import mr.esp.suivi.repository.DepartementRepository;
 import mr.esp.suivi.repository.EtablissementPartenaireRepository;
 
 @RestController
@@ -27,6 +31,9 @@ public class EtablissementPartenaireController {
 
 	 @Autowired
 		private EtablissementPartenaireRepository etabli_PartenaireRepository;
+	 @Autowired
+	 	private DepartementRepository depRepo;
+     
 	
 
 		@GetMapping(path="/all")
@@ -52,6 +59,8 @@ public class EtablissementPartenaireController {
 		@PostMapping(path="/add")
 		public EtablissementPartenaire addEtablissement (@Valid @RequestBody EtablissementPartenaireDto etablissement) {
 			
+			//Collection<Departement> departement= depRepo.findAllById(etablissement.getDepartements());
+			
 			EtablissementPartenaire e = new EtablissementPartenaire();
 			e.setNom(etablissement.getNom());
 			e.setEmail(etablissement.getEmail());
@@ -61,9 +70,7 @@ public class EtablissementPartenaireController {
 			e.setTelephone(etablissement.getTelephone());
 			e.setPays(etablissement.getPays());
 			e.setVille(etablissement.getVille());
-			e.setType_Accords(etablissement.getType_Accords());
-			e.setSpecialite(etablissement.getSpecialite());
-			e.setDepartements(etablissement.getDepartements());
+			
 			
 			
 			EtablissementPartenaire res = etabli_PartenaireRepository.save(e);

@@ -61,9 +61,12 @@
             </div>
           </div>
           <div class="col">
-            <div class="input-group">
-              <label class="label">Spécialité</label>
-              <input class="input--style-4" type="text" id="Specialite">
+             <div class="input-group mb-3">
+            
+            <select class="custom-select" id="departement"> 
+            <option selected value="">Departement</option>
+   					 </select>
+           
             </div>
           </div>
         </div>
@@ -75,13 +78,16 @@
             </div>
           </div>
           <div class="col">
-            <div class="input-group mb-3">
-            <select class="custom-select" id="type_accords"> 
-            <option selected>Type Mobilité</option>
-   					 <option value="DD">DD</option>
-    				<option value="SE">SE</option>
-   					 <option value="autre">autre</option></select>
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="document">
+              <label class="custom-file-label" for="photoFile">Document de Présentation du Partenaire</label>
             </div>
+            <div class="input-group-append">
+              <button class="btn btn-danger" type="button" id="deletedocument">supprimer</button>
+            </div>
+          </div>
+           
           </div>
         </div>
         <div class="row row-space">

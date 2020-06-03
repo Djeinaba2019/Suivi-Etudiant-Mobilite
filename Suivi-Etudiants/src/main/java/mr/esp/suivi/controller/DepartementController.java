@@ -52,7 +52,6 @@ public class DepartementController {
 		Departement dep = new Departement();
 		dep.setCodeDep(departement.getCodeDep());
 		dep.setNom(departement.getNom());
-		dep.setEcolesPartenaire(departement.getEcolesPartenaire());
 		
 		Departement dep1 = departementRepository.save(dep);
 		logger.debug("New department created with codeDep {} !", dep1.getCodeDep());

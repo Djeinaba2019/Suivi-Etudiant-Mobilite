@@ -29,36 +29,22 @@
             <div class="card card-2">
                 <div class="card-heading"></div>
                 <div class="card-body">
-                <div class="row row-space">
-                <div class=col-2><li><a href="index.html">Accueil</a></li> </div>
-                <div class=col><h2 class="title">AFFECTATION MOBILITÉ INTERNATIONALE</h2></div>
-                                   
-        		</div>                 
+                    <h2 class="title">DEPARTEMENT</h2>
                     <form method="POST">
                     
       <div class="row row-space">
-      					<div class="col-2">
-                        <div class="input-group">
-                          <div class="rs-select2 js-select-simple select--no-search">
-                              <select name="etudiant" id ="etudiant">
-                                  <option  selected value="">Etudiant</option>
-                                  
-                              </select>
-                              <div class="select-dropdown"></div>
-                          </div>
-                        </div>
-                         </div>
-                         <div class="col-2">
-                        <div class="input-group">
-                          <div class="rs-select2 js-select-simple select--no-search">
-                              <select name="mobilite" id ="mobilite">
-                                  <option  selected value="">Mobilité</option>
-                                  
-                              </select>
-                              <div class="select-dropdown"></div>
-                          </div>
-                        </div>
-                         </div>
+      				<div class="col">
+            <div class="input-group">
+              <label class="label">Nom Departement</label>
+              <input class="input--style-4" type="text" id="nom">
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <label class="label">Code Departement</label>
+              <input class="input--style-4" type="text" id="codeDep">
+            </div>
+          </div>
                          </div>
                         
 
@@ -66,7 +52,7 @@
                             <button class="btn btn--radius btn--green" type="submit" id="enregistrer">Enregistrer</button>
                         </div>
                         
-                        <div class="alert alert-success d-none" role="alert" id="AffectationFormBanner">
+                        <div class="alert alert-success d-none" role="alert" id="DepartementFormBanner">
       </div>
                     </form>
                 </div>
@@ -78,10 +64,12 @@
     <script src="js/jquery.min.js"></script>
     <!-- Vendor JS-->
     <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
 
     <!-- Main JS-->
     <script src="js/global.js"></script>
-    <script src="js/affectation.js"></script>
+    <script src="js/departement.js"></script>
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
