@@ -9,7 +9,7 @@ function getPatientJson() {
     site_web:$('#site_web').val(),
     telephone:$('#telephone').val(),
     ville:$('#ville').val(),
-    departement:$('#departement').val(),
+    departement:{codeDep:$('#departement').val(),},
     
   };
   return JSON.stringify(formData);

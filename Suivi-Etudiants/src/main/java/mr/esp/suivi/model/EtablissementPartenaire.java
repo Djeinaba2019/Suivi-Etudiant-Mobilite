@@ -1,6 +1,7 @@
 package mr.esp.suivi.model;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -126,19 +127,19 @@ public void setPays(String pays) {
 
 
 	@OneToMany
-    private Collection<Departement> departements;
+    private List<Departement> departements;
 
-	public Collection<Departement> getDepartements() {
+	public List<Departement> getDepartements() {
 		return departements;
 	}
 
-	public void setDepartements(Collection<Departement> departements) {
+	public void setDepartements(List<Departement> departements) {
 		this.departements = departements;
 	}
 
 	public EtablissementPartenaire(String nom, int quotas, String email, String telephone, String adresse,
 			String site_web, String ville, String pays, ImageModel photo,
-			Collection<Departement> departements) {
+			List<Departement> departements) {
 		super();
 		this.nom = nom;
 		this.quotas = quotas;

@@ -3,6 +3,7 @@ package mr.esp.suivi.dto;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
@@ -11,7 +12,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
 
 import mr.esp.suivi.model.Departement;
-import mr.esp.suivi.model.EtablissementPartenaire;
 import mr.esp.suivi.model.Etudiant;
 
 
@@ -50,7 +50,7 @@ public class EtablissementPartenaireDto {
 	@NotBlank
 	private String telephone;
 	
-	private Collection<String>  departements;
+	private List<String> departements;
 	
 	private String adresse;
 	
@@ -85,14 +85,14 @@ public class EtablissementPartenaireDto {
 	public void setSite_web(String site_web) {
 		this.site_web = site_web;
 	}
-	public Iterable<String> getDepartements() {
+	public List<String> getDepartements() {
 		return departements;
 	}
-	public void setDepartements(Collection<String> departements) {
+	public void setDepartements(List<String> departements) {
 		this.departements = departements;
 	}
 	public EtablissementPartenaireDto(@NotBlank String nom, @NotBlank String ville, @NotBlank String pays,
-			 int quotas, @NotBlank String email, @NotBlank String telephone, Collection<String> departements, String adresse, String site_web) {
+			 int quotas, @NotBlank String email, @NotBlank String telephone, List<String> departements, String adresse, String site_web) {
 		super();
 		this.nom = nom;
 		this.ville = ville;

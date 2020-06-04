@@ -1,6 +1,10 @@
 package mr.esp.suivi.controller;
 
+
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -59,7 +63,20 @@ public class EtablissementPartenaireController {
 		@PostMapping(path="/add")
 		public EtablissementPartenaire addEtablissement (@Valid @RequestBody EtablissementPartenaireDto etablissement) {
 			
-			//Collection<Departement> departement= depRepo.findAllById(etablissement.getDepartements());
+			// Iterable<String> iterable = null ;
+			
+			List<String> result = new ArrayList<String>();
+			result.addAll(etablissement.getDepartements());
+			//result = etablissement.getDepartements();
+		  //  iterable.forEach(result::add);
+		    
+		    
+			
+			Iterable<Departement> code = depRepo.findAllById(result);
+			List<Departement> departement= iterableToCollection(code);
+			
+			
+
 			
 			EtablissementPartenaire e = new EtablissementPartenaire();
 			e.setNom(etablissement.getNom());
@@ -70,6 +87,8 @@ public class EtablissementPartenaireController {
 			e.setTelephone(etablissement.getTelephone());
 			e.setPays(etablissement.getPays());
 			e.setVille(etablissement.getVille());
+			e.setDepartements(departement);
+			
 			
 			
 			
@@ -79,7 +98,14 @@ public class EtablissementPartenaireController {
 		}
 		
 		
-		
+		public static <T> List<T> iterableToCollection(Iterable<T> iterable)
+		{
+			List<T> collection = new ArrayList<T>();
+			for (T e : iterable) {
+				collection.add(e);
+			}
+			return collection;
+		}
 		
 		
 		
