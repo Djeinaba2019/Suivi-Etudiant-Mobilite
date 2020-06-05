@@ -3,6 +3,7 @@ package mr.esp.suivi.dto;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
@@ -35,39 +36,28 @@ public class EtablissementPartenaireDto {
 	public void setPays(String pays) {
 		Pays = pays;
 	}
-	public String getType_Accords() {
-		return type_Accords;
-	}
-	public void setType_Accords(String type_Accords) {
-		this.type_Accords = type_Accords;
-	}
+	
 	@NotBlank
 	private String nom;
 	@NotBlank
 	private String ville;
 	@NotBlank
 	private String Pays ;
-	private String type_Accords;
     @NotNull
 	private int quotas;
 	@NotBlank
 	private String email;
 	@NotBlank
 	private String telephone;
-	private String Specialite;
-	private Collection<Departement> departements;
+	
+	private List<String> departements;
 	
 	private String adresse;
 	
 	private String site_web;
 
 	
-	  public String getSpecialite() {
-		return Specialite;
-	}
-	public void setSpecialite(String specialite) {
-		Specialite = specialite;
-	}
+	  
 	public int getQuotas() { return quotas; } public void setQuotas(int quotas) {
 	  this.quotas = quotas; }
 	 
@@ -95,24 +85,21 @@ public class EtablissementPartenaireDto {
 	public void setSite_web(String site_web) {
 		this.site_web = site_web;
 	}
-	public Collection<Departement> getDepartements() {
+	public List<String> getDepartements() {
 		return departements;
 	}
-	public void setDepartements(Collection<Departement> departements) {
+	public void setDepartements(List<String> departements) {
 		this.departements = departements;
 	}
 	public EtablissementPartenaireDto(@NotBlank String nom, @NotBlank String ville, @NotBlank String pays,
-			String type_Accords, int quotas, @NotBlank String email, @NotBlank String telephone,
-			String specialite, Collection<Departement> departements, String adresse, String site_web) {
+			 int quotas, @NotBlank String email, @NotBlank String telephone, List<String> departements, String adresse, String site_web) {
 		super();
 		this.nom = nom;
 		this.ville = ville;
-		Pays = pays;
-		this.type_Accords = type_Accords;
+		Pays = pays;	
 		this.quotas = quotas;
 		this.email = email;
-		this.telephone = telephone;
-		Specialite = specialite;
+		this.telephone = telephone;	
 		this.departements = departements;
 		this.adresse = adresse;
 		this.site_web = site_web;

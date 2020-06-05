@@ -1,4 +1,4 @@
-const apiURL = location.origin + '/Suivi-Etudiants/ecole';
+const apiURL = location.origin + '/Suivi-Etudiants/';
 function getPatientJson() {
   var formData = {
     pays:$('#pays').val(),
@@ -8,9 +8,8 @@ function getPatientJson() {
     quotas:$('#quotas').val(),
     site_web:$('#site_web').val(),
     telephone:$('#telephone').val(),
-    type_Accords:$('#type_accords').val(),
     ville:$('#ville').val(),
-    specialite:$('#Specialite').val(),
+    departement:{codeDep:$('#departement').val(),},
     
   };
   return JSON.stringify(formData);
@@ -34,7 +33,7 @@ $("#doCreateButton").on("click", function(event) {
 
   $.ajax({
     type : "POST",
-    url : apiURL + '/add',
+    url : apiURL + 'ecole/add',
     data : sJSON,
     contentType: "application/json",
     dataType: "json",
@@ -55,7 +54,7 @@ $("#doCreateButton").on("click", function(event) {
 
 	  $.ajax({
 	    type : "POST",
-	    url : apiURL + '/add',
+	    url : apiURL + 'ecole/add',
 	    data : sJSON,
 	    contentType: "application/json",
 	    dataType: "json",
@@ -99,12 +98,35 @@ $("#doCreateButton").on("click", function(event) {
 	    }
 	  });
 });
+
+$(document).ready(function() 
+		{
+	$.ajax({
+		type : "GET",
+		url : apiURL + 'departement/all',
+		cache:false,
+		dataType: "json",
+		success : function(data) {
+			console.log(data);
+			$.each(data, function (index, value) {
+			    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+			    $('#departement').append('<option value="' + value.codeDep + '">' + value.codeDep + '</option>');
+			});
+		    
+		},
+		error : function (request, status, error) {
+		      console.log(request.responseText);
+		      console.log(error);
+		}
+	});
+		});
+	
 	
 $("#listEcoles").ready(function() {
 	
 	$.ajax({
 		type : "GET",
-		url : apiURL + '/all',
+		url : apiURL + 'ecole/all',
 		cache:false,
 		dataType: "json",
 		success : function(data) {
@@ -119,9 +141,8 @@ $("#listEcoles").ready(function() {
 			    content += '<td>' + data[i].quotas + '</td>';
 			    content += '<td>' + data[i].site_web + '</td>';
 			    content += '<td>' + data[i].telephone + '</td>';
-			    content += '<td>' + data[i].type_accords + '</td>';
 			    content += '<td>' + data[i].ville + '</td>';
-			    content += '<td>' + data[i].specialite + '</td>';
+			    content += '<td>' + data[i].departement + '</td>';
 			    content += '<td>' + data[i].photo + '</td>';	    
 			    content += '<th scope="row">' + data[i].id + '</th>';
 			    content += '</tr>';

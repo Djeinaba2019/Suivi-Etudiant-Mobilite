@@ -38,6 +38,9 @@ public class Departement {
 	
 	@OneToMany
     private Collection <EtablissementPartenaire> ecolesPartenaire;
+	
+	
+	
 	public Departement(String codeDep, String nom) {
 		super();
 		this.codeDep = codeDep;

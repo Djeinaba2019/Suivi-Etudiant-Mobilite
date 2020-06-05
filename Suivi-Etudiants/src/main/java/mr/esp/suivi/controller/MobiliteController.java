@@ -69,6 +69,7 @@ public class MobiliteController {
 		@PostMapping(path="/add")
 		public Mobilite addMobilite(@Valid @RequestBody MobiliteDto mobiliteDto) {
 			
+		
 			
 			
           Mobilite mob = new Mobilite();

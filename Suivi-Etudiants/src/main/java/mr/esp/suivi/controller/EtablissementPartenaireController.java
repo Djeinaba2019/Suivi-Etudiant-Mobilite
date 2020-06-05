@@ -1,5 +1,11 @@
 package mr.esp.suivi.controller;
 
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -17,7 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import mr.esp.suivi.dto.EtablissementPartenaireDto;
 import mr.esp.suivi.exception.ResourceNotFoundException;
+import mr.esp.suivi.model.Departement;
 import mr.esp.suivi.model.EtablissementPartenaire;
+import mr.esp.suivi.repository.DepartementRepository;
 import mr.esp.suivi.repository.EtablissementPartenaireRepository;
 
 @RestController
@@ -27,6 +35,9 @@ public class EtablissementPartenaireController {
 
 	 @Autowired
 		private EtablissementPartenaireRepository etabli_PartenaireRepository;
+	 @Autowired
+	 	private DepartementRepository depRepo;
+     
 	
 
 		@GetMapping(path="/all")
@@ -52,6 +63,21 @@ public class EtablissementPartenaireController {
 		@PostMapping(path="/add")
 		public EtablissementPartenaire addEtablissement (@Valid @RequestBody EtablissementPartenaireDto etablissement) {
 			
+			// Iterable<String> iterable = null ;
+			
+			List<String> result = new ArrayList<String>();
+			result.addAll(etablissement.getDepartements());
+			//result = etablissement.getDepartements();
+		  //  iterable.forEach(result::add);
+		    
+		    
+			
+			Iterable<Departement> code = depRepo.findAllById(result);
+			List<Departement> departement= iterableToCollection(code);
+			
+			
+
+			
 			EtablissementPartenaire e = new EtablissementPartenaire();
 			e.setNom(etablissement.getNom());
 			e.setEmail(etablissement.getEmail());
@@ -61,9 +87,9 @@ public class EtablissementPartenaireController {
 			e.setTelephone(etablissement.getTelephone());
 			e.setPays(etablissement.getPays());
 			e.setVille(etablissement.getVille());
-			e.setType_Accords(etablissement.getType_Accords());
-			e.setSpecialite(etablissement.getSpecialite());
-			e.setDepartements(etablissement.getDepartements());
+			e.setDepartements(departement);
+			
+			
 			
 			
 			EtablissementPartenaire res = etabli_PartenaireRepository.save(e);
@@ -72,7 +98,14 @@ public class EtablissementPartenaireController {
 		}
 		
 		
-		
+		public static <T> List<T> iterableToCollection(Iterable<T> iterable)
+		{
+			List<T> collection = new ArrayList<T>();
+			for (T e : iterable) {
+				collection.add(e);
+			}
+			return collection;
+		}
 		
 		
 		

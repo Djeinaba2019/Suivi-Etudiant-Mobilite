@@ -1,6 +1,7 @@
 package mr.esp.suivi.model;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -36,23 +37,13 @@ private String ville;
 
 private String Pays ;
 
-private String type_Accords;
-
-private String Specialite;
-
 @OneToOne(
 	    cascade = CascadeType.ALL)
 private ImageModel photo;
 
 
 
-public String getSpecialite() {
-	return Specialite;
-}
 
-public void setSpecialite(String specialite) {
-	Specialite = specialite;
-}
 
 public ImageModel getPhoto() {
 	return photo;
@@ -134,29 +125,21 @@ public void setPays(String pays) {
 	Pays = pays;
 }
 
-public String getType_Accords() {
-	return type_Accords;
-}
-
-public void setType_Accords(String type_Accords) {
-	this.type_Accords = type_Accords;
-}
-
 
 	@OneToMany
-    private Collection<Departement> departements;
+    private List<Departement> departements;
 
-	public Collection<Departement> getDepartements() {
+	public List<Departement> getDepartements() {
 		return departements;
 	}
 
-	public void setDepartements(Collection<Departement> departements) {
+	public void setDepartements(List<Departement> departements) {
 		this.departements = departements;
 	}
 
 	public EtablissementPartenaire(String nom, int quotas, String email, String telephone, String adresse,
-			String site_web, String ville, String pays, String type_Accords, String specialite, ImageModel photo,
-			Collection<Departement> departements) {
+			String site_web, String ville, String pays, ImageModel photo,
+			List<Departement> departements) {
 		super();
 		this.nom = nom;
 		this.quotas = quotas;
@@ -166,8 +149,6 @@ public void setType_Accords(String type_Accords) {
 		this.site_web = site_web;
 		this.ville = ville;
 		Pays = pays;
-		this.type_Accords = type_Accords;
-		Specialite = specialite;
 		this.photo = photo;
 		this.departements = departements;
 	}

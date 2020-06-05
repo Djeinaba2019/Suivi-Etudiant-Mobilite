@@ -49,7 +49,7 @@ $(document).ready(function()
 			console.log(data);
 			$.each(data, function (index, value) {
 			    // APPEND OR INSERT DATA TO SELECT ELEMENT.
-			    $('#mobilite').append('<option value="' + value.id + '">' + value.id + '</option>');
+			    $('#mobilite').append('<option value="' + value.id + '">'+ value.ecoles.nom + "  ,  "+ value.typeMobilite + '</option>');
 			});
 		    
 		},
