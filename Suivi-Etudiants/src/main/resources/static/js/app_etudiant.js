@@ -12,9 +12,11 @@ function getEtudiantJson() {
 			  email:$('#email').val(),
 			  telephone:$('#telephone').val(),
 			  photo:$('#photo').val(),
+			  departement:{codeDep:$('#departement').val(),}
 	  };
 	  return JSON.stringify(formData);
 	}
+
 
 function hideAlert() {
 	  if ($(".alert").is(":visible")){
@@ -90,10 +92,11 @@ $("#doCreateButton").on("click", function(event) {
 		  
 	});
 	
-	
 
-	$("#listDepartements").ready(function() {
-		
+
+	   
+	$(document).ready(function() 
+			{
 		$.ajax({
 			type : "GET",
 			url : apiURL1 + '/all',
@@ -101,21 +104,21 @@ $("#doCreateButton").on("click", function(event) {
 			dataType: "json",
 			success : function(data) {
 				console.log(data);
-				var content = '';
-			    for (var i = 0; i < data.length; i++) {
-				    content += '<tr>';
-				    content += '<td>' + data[i].codeDep + '</td>';
-				    content += '<td>' + data[i].nom + '</td>';
-				    content += '<td>' + data[i].ecolesPartenaire + '</td>';
-				    content += '<th scope="row">' + data[i].id + '</th>';
-				    content += '</tr>';
-			    }
-			    $('#listDepartements tbody').html(content);
+				$.each(data, function (index, value) {
+				    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+				    $('#departement').append('<option value="' + value.codeDep + '">' + value.codeDep + '</option>');
+				});
+			    
 			},
 			error : function (request, status, error) {
 			      console.log(request.responseText);
 			      console.log(error);
 			}
 		});
-		  
+		
+		
+
+
 	});
+
+

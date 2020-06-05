@@ -24,7 +24,7 @@ public class Mobilite {
 		private Integer id;
 		
 		@PastOrPresent
-		@JsonFormat(pattern="dd-MM-yyyy")
+		@JsonFormat(pattern="yyyy")
 		private Date annee;
 		
 		

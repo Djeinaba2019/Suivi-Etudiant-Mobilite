@@ -18,7 +18,7 @@ public class MobiliteDto {
 
 	
 	   @PastOrPresent
-	   @JsonFormat(pattern="dd-MM-yyyy")
+	   @JsonFormat(pattern="yyyy")
 	    private Date annee;
 	   
 		@NotBlank

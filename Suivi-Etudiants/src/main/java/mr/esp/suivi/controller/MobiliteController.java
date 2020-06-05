@@ -1,5 +1,9 @@
 package mr.esp.suivi.controller;
 
+import java.util.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;  
+
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -43,6 +47,12 @@ public class MobiliteController {
 		}
 	 
 
+	 @GetMapping(path="/mobilite_{date}/{codeDep}")
+	 Iterable<Mobilite> getMobilitebyDep(@PathVariable String date, @PathVariable String codeDep) throws ParseException {
+		    Date annee=new SimpleDateFormat("yyyy").parse(date);  
+		return mobiliteRepository.findByAnneeAndDepartement_CodeDep(annee, codeDep);
+	 }
+	 
 		@GetMapping(path="/{id}")
 		public Mobilite getMobilite(@PathVariable Integer id) {
 			return mobiliteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Mobilite", "id", id));

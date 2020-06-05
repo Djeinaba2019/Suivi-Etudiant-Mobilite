@@ -20,6 +20,8 @@ import mr.esp.suivi.exception.ResourceNotFoundException;
 import mr.esp.suivi.model.Choix;
 
 import mr.esp.suivi.repository.ChoixRepository;
+import mr.esp.suivi.repository.EtudiantRepository;
+import mr.esp.suivi.repository.MobiliteRepository;
 
 @RestController
 @RequestMapping(path = "/choix")
@@ -28,7 +30,10 @@ public class ChoixController {
 
 	@Autowired
 	private ChoixRepository choixRepository;
-	
+	@Autowired
+	private MobiliteRepository mobiliteRepository;
+	 @Autowired
+		private EtudiantRepository etudiantRepository;
 	@GetMapping(path = "/all")
 	public Iterable<Choix> getAllChoix() {
 		return choixRepository.findAll();
@@ -51,10 +56,10 @@ public class ChoixController {
 	@PostMapping(path = "/add")
 	public Choix addChoix(@Valid @RequestBody ChoixDto choixDto) {
 		Choix choix1 = new Choix();
-		choix1.setEntudiant(choixDto.getEntudiant());
-		choix1.setMobilite1(choixDto.getMobilite1());
-		choix1.setMobilite2(choixDto.getMobilite2());
-		choix1.setMobilite3(choixDto.getMobilite3());
+		choix1.setEntudiant(etudiantRepository.findById(choixDto.getEtudiantId()).orElseThrow());
+		choix1.setMobilite1(mobiliteRepository.findById(choixDto.getMobilite1Id()).orElseThrow());
+		choix1.setMobilite2(mobiliteRepository.findById(choixDto.getMobilite2Id()).orElseThrow());
+		choix1.setMobilite3(mobiliteRepository.findById(choixDto.getMobilite3Id()).orElseThrow());
 		Choix choix2 = choixRepository.save(choix1);
 		logger.debug("New Choix created with id {} !", choix2.getId());
 		return choix2;

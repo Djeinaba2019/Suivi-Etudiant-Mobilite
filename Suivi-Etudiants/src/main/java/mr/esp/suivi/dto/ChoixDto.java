@@ -1,51 +1,35 @@
 package mr.esp.suivi.dto;
 
 
-import mr.esp.suivi.model.Etudiant;
-import mr.esp.suivi.model.Mobilite;
 
 public class ChoixDto {
 
-
-	public Etudiant getEntudiant() {
-		return entudiant;
+public Integer getEtudiantId() {
+		return etudiantId;
 	}
-
-	public void setEntudiant(Etudiant entudiant) {
-		this.entudiant = entudiant;
+	public void setEtudiantId(Integer etudiantId) {
+		this.etudiantId = etudiantId;
 	}
-
-	public Mobilite getMobilite1() {
-		return mobilite1;
+	public Integer getMobilite1Id() {
+		return mobilite1Id;
 	}
-
-	public void setMobilite1(Mobilite mobilite1) {
-		this.mobilite1 = mobilite1;
+	public void setMobilite1Id(Integer mobilite1Id) {
+		this.mobilite1Id = mobilite1Id;
 	}
-
-	public Mobilite getMobilite2() {
-		return mobilite2;
+	public Integer getMobilite2Id() {
+		return mobilite2Id;
 	}
-
-	public void setMobilite2(Mobilite mobilite2) {
-		this.mobilite2 = mobilite2;
+	public void setMobilite2Id(Integer mobilite2Id) {
+		this.mobilite2Id = mobilite2Id;
 	}
-
-	public Mobilite getMobilite3() {
-		return mobilite3;
+	public Integer getMobilite3Id() {
+		return mobilite3Id;
 	}
-
-	public void setMobilite3(Mobilite mobilite3) {
-		this.mobilite3 = mobilite3;
+	public void setMobilite3Id(Integer mobilite3Id) {
+		this.mobilite3Id = mobilite3Id;
 	}
-
-	
-		
-		private Etudiant entudiant;
-		
-		private Mobilite mobilite1;
-	
-		private Mobilite mobilite2;
-	
-		private Mobilite mobilite3;
+private Integer etudiantId;
+private Integer mobilite1Id;
+private Integer mobilite2Id;
+private Integer mobilite3Id;
 }
