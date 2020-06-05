@@ -27,7 +27,7 @@ $(document).ready(function()
 			console.log(data);
 			$.each(data, function (index, value) {
 			    // APPEND OR INSERT DATA TO SELECT ELEMENT.
-			    $('#ecole').append('<option value="' + value.nom + '">' + value.nom + '</option>');
+			    $('#ecole').append('<option value="' + value.id + '">' + value.nom + '</option>');
 			});
 		    
 		},
@@ -87,7 +87,7 @@ $.ajax({
               console.log(msg);
             },
             error: function (request, status, error) {
-              $("#MobiliteFormBanner").html('Error!');
+              $("#MobiliteFormBanner").html('Tout les champs sont obligatoires !');
               $("#MobiliteFormBanner").attr('class', 'alert alert-danger');
               setTimeout(function() { $("#MobiliteFormBanner").addClass('d-none'); }, 10000);
               console.log(request.responseText);

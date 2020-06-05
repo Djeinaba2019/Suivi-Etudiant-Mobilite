@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
 
-  <title>Hello, ESP!</title>
+  <title>MOBILITÉ INTERNATIONAL</title>
 </head>
 <body>
   <div class="container">
@@ -21,6 +21,26 @@
         	</a>
         </div>
     </div>
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="deleteModalLabel">Ecole Partenaire </h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        Voulez-vous vraiment supprimer cet enregistrement?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+	        <button type="button" class="btn btn-danger" data-dismiss="modal" id="doDeleteButton">Supprimer</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+    
     <div class="table-responsive">
   		<table class="table" id="listEcoles">
     		<thead>
@@ -33,9 +53,8 @@
 			      <th scope="col">quotas</th>
 			      <th scope="col">site web</th>
 			      <th scope="col">telephone</th>
-			      <th scope="col">Type Accord</th>
 			      <th scope="col">ville</th>
-			      <th scope="col">Specialite</th>
+			      <th scope="col">Departement</th>
 			      <th scope="col">Photo</th>
 			      <th scope="col">Actions</th>
 			    </tr>

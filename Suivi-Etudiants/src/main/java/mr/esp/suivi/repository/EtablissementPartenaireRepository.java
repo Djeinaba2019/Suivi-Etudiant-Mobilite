@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 import mr.esp.suivi.model.Departement;
 import mr.esp.suivi.model.EtablissementPartenaire;
 
-public interface EtablissementPartenaireRepository extends CrudRepository<EtablissementPartenaire, String> {
+public interface EtablissementPartenaireRepository extends CrudRepository<EtablissementPartenaire, Integer> {
 
 		
 	@Query("SELECT E FROM EtablissementPartenaire E where E.nom= ?1 ")

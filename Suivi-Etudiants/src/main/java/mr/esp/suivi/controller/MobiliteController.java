@@ -76,8 +76,8 @@ public class MobiliteController {
           mob.setTypeMobilite(mobiliteDto.getTypeMobilite());
           mob.setAnnee(mobiliteDto.getAnnee());
           mob.setDepartement(depRepo.findById(mobiliteDto.getDepartement()).orElseThrow());
-          String ecole =mobiliteDto.getecole();
-          mob.setEcoles(ecoleRepo.findByName(ecole).orElseThrow());
+          Integer ecole =mobiliteDto.getecole();
+          mob.setEcoles(ecoleRepo.findById(ecole).orElseThrow());
           
 		  Mobilite mobilite = mobiliteRepository.save(mob);
 			logger.debug("New Mobilite created with id {} !", mobilite.getId());

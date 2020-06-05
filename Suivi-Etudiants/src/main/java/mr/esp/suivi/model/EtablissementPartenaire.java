@@ -126,20 +126,8 @@ public void setPays(String pays) {
 }
 
 
-	@OneToMany
-    private List<Departement> departements;
-
-	public List<Departement> getDepartements() {
-		return departements;
-	}
-
-	public void setDepartements(List<Departement> departements) {
-		this.departements = departements;
-	}
-
 	public EtablissementPartenaire(String nom, int quotas, String email, String telephone, String adresse,
-			String site_web, String ville, String pays, ImageModel photo,
-			List<Departement> departements) {
+			String site_web, String ville, String pays, ImageModel photo) {
 		super();
 		this.nom = nom;
 		this.quotas = quotas;
@@ -150,7 +138,7 @@ public void setPays(String pays) {
 		this.ville = ville;
 		Pays = pays;
 		this.photo = photo;
-		this.departements = departements;
+		
 	}
 
 	public EtablissementPartenaire() {

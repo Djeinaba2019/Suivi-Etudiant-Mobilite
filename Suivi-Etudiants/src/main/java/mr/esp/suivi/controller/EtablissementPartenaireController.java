@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sun.xml.bind.v2.model.core.ID;
+
 import mr.esp.suivi.dto.EtablissementPartenaireDto;
 import mr.esp.suivi.exception.ResourceNotFoundException;
 import mr.esp.suivi.model.Departement;
@@ -47,14 +49,14 @@ public class EtablissementPartenaireController {
 		
 
 		@GetMapping(path="/{id}")
-		public EtablissementPartenaire getEtablissement(@PathVariable String nom) {
-			return etabli_PartenaireRepository.findById(nom).orElseThrow(() -> new ResourceNotFoundException("Etablissement", "id", nom));
+		public EtablissementPartenaire getEtablissement(@PathVariable Integer id) {
+			return etabli_PartenaireRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Etablissement", "id", id));
 		}
 		
 		
 		
 		@DeleteMapping(path="/{id}")
-		public EtablissementPartenaire deleteEtablissement(@PathVariable String id) {
+		public EtablissementPartenaire deleteEtablissement(@PathVariable Integer id) {
 			EtablissementPartenaire p = etabli_PartenaireRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Etablissement", "id", id));
 			etabli_PartenaireRepository.delete(p);
 			return p;
@@ -63,17 +65,17 @@ public class EtablissementPartenaireController {
 		@PostMapping(path="/add")
 		public EtablissementPartenaire addEtablissement (@Valid @RequestBody EtablissementPartenaireDto etablissement) {
 			
-			// Iterable<String> iterable = null ;
+			//Iterable<String> iterable = null ;
 			
-			List<String> result = new ArrayList<String>();
-			result.addAll(etablissement.getDepartements());
-			//result = etablissement.getDepartements();
-		  //  iterable.forEach(result::add);
+		//	List<String> result = new ArrayList<String>();
+			//result.addAll(etablissement.getDepartements());
+			
+		   //iterable.forEach(result::add);
 		    
 		    
 			
-			Iterable<Departement> code = depRepo.findAllById(result);
-			List<Departement> departement= iterableToCollection(code);
+			//Iterable<Departement> code = depRepo.findAllById(result);
+			//List<Departement> departement= iterableToCollection(code);
 			
 			
 
@@ -87,7 +89,7 @@ public class EtablissementPartenaireController {
 			e.setTelephone(etablissement.getTelephone());
 			e.setPays(etablissement.getPays());
 			e.setVille(etablissement.getVille());
-			e.setDepartements(departement);
+			
 			
 			
 			
@@ -108,8 +110,6 @@ public class EtablissementPartenaireController {
 		}
 		
 		
-		
-		
-		
+	
 
 }
