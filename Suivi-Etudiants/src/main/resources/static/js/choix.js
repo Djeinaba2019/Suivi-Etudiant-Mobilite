@@ -88,7 +88,7 @@ $("#enregistrer").on("click", function(event) {
 	$(function()
 	{$('#etudiantId').change(function(){
 		var matricule = $('#etudiantId').val();
-		$.ajax({
+	          $.ajax({
 			type : "GET",
 			url : apiURL + 'etudiant/'+matricule,
 			cache:false,
@@ -96,34 +96,41 @@ $("#enregistrer").on("click", function(event) {
 			success : function(data) {
 				console.log(data);
 				var dep = data.departement.codeDep;
+					 $.ajax({
+							type : "GET",
+							url : apiURL + 'mobilite/mobilite_'+year+'/'+dep,
+							cache:false,
+							dataType: "json",
+							success : function(data) {
+								console.log(data);
+								$.each(data, function (index, value) {
+								    // APPEND OR INSERT DATA TO SELECT ELEMENT.
+									$('#mobilite1Id').empty();
+									$('#mobilite1Id').append(' <option  selected value="">Choix De Mobilité 1</option>')
+									$('#mobilite2Id').empty();
+									$('#mobilite2Id').append(' <option  selected value="">Choix De Mobilité 2</option>')
+									$('#mobilite3Id').empty();
+									$('#mobilite3Id').append(' <option  selected value="">Choix De Mobilité 3</option>')
+									$('#mobilite1Id').append('<option value="' + value.id + '">'+value.ecoles.nom+'  '+ value.typeMobilite+  '</option>');
+									$('#mobilite2Id').append('<option value="' + value.id + '">'+value.ecoles.nom+'  '+ value.typeMobilite+  '</option>');
+									$('#mobilite3Id').append('<option value="' + value.id + '">'+value.ecoles.nom+'  '+ value.typeMobilite+  '</option>');
+								});
+								
+							},
+							error : function (request, status, error) {
+							      console.log(request.responseText);
+							      console.log(error);
+							}
+						}); 
 				
-				$.ajax({
-					type : "GET",
-					url : apiURL + 'mobilite/mobilite_'+year+'/'+dep,
-					cache:false,
-					dataType: "json",
-					success : function(data) {
-						console.log(data);
-						$.each(data, function (index, value) {
-						    // APPEND OR INSERT DATA TO SELECT ELEMENT.
-							$('#mobilite1Id').append('<option value="' + value.id + '">'+value.ecoles.nom+'  '+ value.typeMobilite+  '</option>');
-							$('#mobilite2Id').append('<option value="' + value.id + '">'+value.ecoles.nom+'  '+ value.typeMobilite+  '</option>');
-							$('#mobilite3Id').append('<option value="' + value.id + '">'+value.ecoles.nom+'  '+ value.typeMobilite+  '</option>');
-						});
-						
-					},
-					error : function (request, status, error) {
-					      console.log(request.responseText);
-					      console.log(error);
-					}
-				}); 
 
 			},
 			error : function (request, status, error) {
 			      console.log(request.responseText);
 			      console.log(error);
 			}
-		}); 
+		
 			
 	})
+	});
 	});

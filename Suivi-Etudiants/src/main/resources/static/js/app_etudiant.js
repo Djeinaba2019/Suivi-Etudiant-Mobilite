@@ -72,14 +72,14 @@ $("#doCreateButton").on("click", function(event) {
 				var content = '';
 			    for (var i = 0; i < data.length; i++) {
 				    content += '<tr>';
+				    content += '<td>' + data[i].matricule + '</td>';
 				    content += '<td>' + data[i].nom + '</td>';
 				    content += '<td>' + data[i].prenom + '</td>';
+				    content += '<td>' + data[i].email + '</td>';
 				    content += '<td>' + data[i].telephone + '</td>';
-				    content += '<td>' + data[i].photo + '</td>';
-				    content += '<td>' + data[i].matricule + '</td>';
+				    content += '<td>' + data[i].departement.codeDep + '</td>';
 				    content += '<td>' + data[i].nni + '</td>';
 				    content += '<td>' + data[i].dateDeNaissance + '</td>';
-				    content += '<th scope="row">' + data[i].id + '</th>';
 				    content += '</tr>';
 			    }
 			    $('#listEtudiants tbody').html(content);

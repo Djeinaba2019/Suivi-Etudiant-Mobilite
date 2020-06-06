@@ -67,11 +67,8 @@ public class MobiliteDto {
 		}
 		
 		
-		
-		
-		
-		
 		public MobiliteDto(@PastOrPresent Date annee,  @NotNull Integer ecole,
+
 				@NotBlank String departement, String typeMobilite) {
 			super();
 			this.annee = annee;

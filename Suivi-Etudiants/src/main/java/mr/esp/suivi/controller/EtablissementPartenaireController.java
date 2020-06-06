@@ -1,17 +1,13 @@
 package mr.esp.suivi.controller;
 
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
+
 
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,9 +21,7 @@ import com.sun.xml.bind.v2.model.core.ID;
 
 import mr.esp.suivi.dto.EtablissementPartenaireDto;
 import mr.esp.suivi.exception.ResourceNotFoundException;
-import mr.esp.suivi.model.Departement;
 import mr.esp.suivi.model.EtablissementPartenaire;
-import mr.esp.suivi.repository.DepartementRepository;
 import mr.esp.suivi.repository.EtablissementPartenaireRepository;
 
 @RestController
@@ -37,9 +31,7 @@ public class EtablissementPartenaireController {
 
 	 @Autowired
 		private EtablissementPartenaireRepository etabli_PartenaireRepository;
-	 @Autowired
-	 	private DepartementRepository depRepo;
-     
+	
 	
 
 		@GetMapping(path="/all")
@@ -65,19 +57,7 @@ public class EtablissementPartenaireController {
 		@PostMapping(path="/add")
 		public EtablissementPartenaire addEtablissement (@Valid @RequestBody EtablissementPartenaireDto etablissement) {
 			
-			//Iterable<String> iterable = null ;
-			
-		//	List<String> result = new ArrayList<String>();
-			//result.addAll(etablissement.getDepartements());
-			
-		   //iterable.forEach(result::add);
-		    
-		    
-			
-			//Iterable<Departement> code = depRepo.findAllById(result);
-			//List<Departement> departement= iterableToCollection(code);
-			
-			
+
 
 			
 			EtablissementPartenaire e = new EtablissementPartenaire();
@@ -89,25 +69,14 @@ public class EtablissementPartenaireController {
 			e.setTelephone(etablissement.getTelephone());
 			e.setPays(etablissement.getPays());
 			e.setVille(etablissement.getVille());
-			
-			
-			
-			
+
 			
 			EtablissementPartenaire res = etabli_PartenaireRepository.save(e);
 			logger.debug("New Etablissement created with id {} !", res.getNom());
 			return res;
 		}
 		
-		
-		public static <T> List<T> iterableToCollection(Iterable<T> iterable)
-		{
-			List<T> collection = new ArrayList<T>();
-			for (T e : iterable) {
-				collection.add(e);
-			}
-			return collection;
-		}
+	
 		
 		
 	

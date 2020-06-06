@@ -126,6 +126,7 @@ public void setPays(String pays) {
 }
 
 
+
 	public EtablissementPartenaire(String nom, int quotas, String email, String telephone, String adresse,
 			String site_web, String ville, String pays, ImageModel photo) {
 		super();
@@ -138,7 +139,7 @@ public void setPays(String pays) {
 		this.ville = ville;
 		Pays = pays;
 		this.photo = photo;
-		
+
 	}
 
 	public EtablissementPartenaire() {

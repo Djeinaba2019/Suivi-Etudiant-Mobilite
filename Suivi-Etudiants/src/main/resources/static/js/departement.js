@@ -7,17 +7,16 @@ function getDepartementJson() {
 	   	    
 	  };
 	  return JSON.stringify(formData);
-	}
+	};
 
 	function hideAlert() {
 	  if ($(".alert").is(":visible")){
 	    $(".alert").fadeOut("fast");
-	  }
-	}
+	  };
+	};
 	
 	
-	$("#enregistrer").on("click", function(event) {
-
+	$('#enregistrer').on("click", function(event) {
 		  event.preventDefault();
 		  var sJSON = getDepartementJson();
 
@@ -44,3 +43,32 @@ function getDepartementJson() {
 	      
 	    
 	  });
+	
+
+	$("#ListDepartements").ready(function() {
+		
+		$.ajax({
+			type : "GET",
+			url : apiURL + '/all',
+			cache:false,
+			dataType: "json",
+			success : function(data) {
+				console.log(data);
+				var content = '';
+			    for (var i = 0; i < data.length; i++) {
+				    content += '<tr>';
+				    content += '<td>' + data[i].nom + '</td>';
+				    content += '<td>' + data[i].codeDep + '</td>';    
+				    content += '<th scope="row">' + data[i].codeDep + '</th>';
+				    content += '</tr>';
+			    }
+			    $('#ListDepartements tbody').html(content);
+			},
+			error : function (request, status, error) {
+			      console.log(request.responseText);
+			      console.log(error);
+			}
+		});
+		  
+
+	});

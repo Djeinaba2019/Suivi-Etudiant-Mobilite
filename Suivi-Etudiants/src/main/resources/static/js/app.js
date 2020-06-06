@@ -9,6 +9,7 @@ function getPatientJson() {
     site_web:$('#site_web').val(),
     telephone:$('#telephone').val(),
     ville:$('#ville').val(),
+
     
   };
   return JSON.stringify(formData);
@@ -77,7 +78,6 @@ $("#listEcoles").ready(function() {
 			    content += '<td>' + data[i].site_web + '</td>';
 			    content += '<td>' + data[i].telephone + '</td>';
 			    content += '<td>' + data[i].ville + '</td>';
-			    content += '<td>' + data[i].departement + '</td>';
 			    content += '<td>' + data[i].photo + '</td>';	    
 			    content += '<th scope="row"> <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" data-ecoleid="' + data[i].id + '">&times;</button></th>';
 			    content += '</tr>';
