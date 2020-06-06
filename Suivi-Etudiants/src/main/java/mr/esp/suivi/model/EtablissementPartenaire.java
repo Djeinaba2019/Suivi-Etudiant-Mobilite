@@ -139,7 +139,7 @@ public void setPays(String pays) {
 		this.ville = ville;
 		Pays = pays;
 		this.photo = photo;
-	
+
 	}
 
 	public EtablissementPartenaire() {

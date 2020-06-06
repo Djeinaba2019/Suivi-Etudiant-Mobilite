@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PastOrPresent;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -21,8 +22,8 @@ public class MobiliteDto {
 	   @JsonFormat(pattern="yyyy")
 	    private Date annee;
 	   
-		@NotBlank
-		private String ecole ;
+		@NotNull
+		private Integer ecole ;
 		
 		
 		@NotBlank
@@ -44,10 +45,10 @@ public class MobiliteDto {
 		
 	    
 		
-		public String getecole() {
+		public Integer getecole() {
 			return ecole;
 		}
-		public void setId_ecole(String ecoles) {
+		public void setId_ecole(Integer ecoles) {
 			this.ecole = ecoles;
 		}
 		public Date getAnnee() {
@@ -66,8 +67,8 @@ public class MobiliteDto {
 		}
 		
 		
-		
-		public MobiliteDto(@PastOrPresent Date annee,  @NotBlank String ecole,
+		public MobiliteDto(@PastOrPresent Date annee,  @NotNull Integer ecole,
+
 				@NotBlank String departement, String typeMobilite) {
 			super();
 			this.annee = annee;

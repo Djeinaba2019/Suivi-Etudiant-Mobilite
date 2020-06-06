@@ -15,7 +15,6 @@ import javax.persistence.TemporalType;
 
 public class Etudiant {
 	@Id
-	
 	private Integer matricule;
 
 	public Integer getMatricule() {
