@@ -1,29 +1,29 @@
 package mr.esp.suivi.dto;
 
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import mr.esp.suivi.model.Etudiant;
-import mr.esp.suivi.model.Mobilite;
+
 
 public class AffectationDto {
 	
-	public String getEtudiant() {
+
+	public Integer getEtudiant() {
 		return etudiant;
 	}
-	public void setEtudiant(String etudiant) {
+	public void setEtudiant(Integer etudiant) {
 		this.etudiant = etudiant;
 	}
-	public int getMobilite() {
+	public Integer getMobilite() {
 		return mobilite;
 	}
-	public void setMobilite(int mobilite) {
+	public void setMobilite(Integer mobilite) {
 		this.mobilite = mobilite;
 	}
-	@NotBlank
-	 private String etudiant;
-	
-	 private int mobilite;
-	public AffectationDto(@NotBlank String etudiant, @NotBlank int mobilite) {
+	@NotNull
+	 private Integer etudiant;
+	@NotNull
+	 private Integer mobilite;
+	public AffectationDto(@NotNull Integer etudiant, @NotNull Integer mobilite) {
 		super();
 		this.etudiant = etudiant;
 		this.mobilite = mobilite;

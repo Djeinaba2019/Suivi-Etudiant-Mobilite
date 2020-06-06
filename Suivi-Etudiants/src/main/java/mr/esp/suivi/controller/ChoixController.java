@@ -18,7 +18,8 @@ import mr.esp.suivi.dto.ChoixDto;
 
 import mr.esp.suivi.exception.ResourceNotFoundException;
 import mr.esp.suivi.model.Choix;
-
+import mr.esp.suivi.model.Etudiant;
+import mr.esp.suivi.model.Mobilite;
 import mr.esp.suivi.repository.ChoixRepository;
 import mr.esp.suivi.repository.EtudiantRepository;
 import mr.esp.suivi.repository.MobiliteRepository;
@@ -44,6 +45,14 @@ public class ChoixController {
 		return choixRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Choix", "id", id));
 	}
+	
+	@GetMapping(path = "/choix/{matricule}")
+	 public Choix getChoixEtudiant(@PathVariable Integer matricule) {
+		return choixRepository.findByEntudiant_Matricule(matricule);
+	}
+	
+
+	
 	
 	@DeleteMapping(path = "/{id}")
 	public Choix deleteChoix(@PathVariable Integer id) {

@@ -50,7 +50,6 @@ public class EtablissementPartenaireDto {
 	@NotBlank
 	private String telephone;
 	
-	private List<String> departements;
 	
 	private String adresse;
 	
@@ -85,14 +84,9 @@ public class EtablissementPartenaireDto {
 	public void setSite_web(String site_web) {
 		this.site_web = site_web;
 	}
-	public List<String> getDepartements() {
-		return departements;
-	}
-	public void setDepartements(List<String> departements) {
-		this.departements = departements;
-	}
+	
 	public EtablissementPartenaireDto(@NotBlank String nom, @NotBlank String ville, @NotBlank String pays,
-			 int quotas, @NotBlank String email, @NotBlank String telephone, List<String> departements, String adresse, String site_web) {
+			 int quotas, @NotBlank String email, @NotBlank String telephone, String adresse, String site_web) {
 		super();
 		this.nom = nom;
 		this.ville = ville;
@@ -100,7 +94,6 @@ public class EtablissementPartenaireDto {
 		this.quotas = quotas;
 		this.email = email;
 		this.telephone = telephone;	
-		this.departements = departements;
 		this.adresse = adresse;
 		this.site_web = site_web;
 	}

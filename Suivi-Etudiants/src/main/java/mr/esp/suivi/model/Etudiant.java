@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 public class Etudiant {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	
 	private Integer matricule;
 
 	public Integer getMatricule() {

@@ -26,17 +26,19 @@
 <body>
     <div class="page-wrapper bg-blue p-t-180 p-b-100 font-robo">
         <div class="wrapper wrapper--w960">
-      
             <div class="card card-2">
-           
-                <div class="card-heading">
+                <div class="card-heading"></div>
                 <div class="card-body">
-                 
-                    <h2 class="title">MOBILITÉ INTERNATIONALE</h2>
-                    <form method="POST">
+                <div class="row row-space">
+        
+                <div class=col><h2 class="title">MOBILITÉ INTERNATIONALE</h2></div>
+                                   
+        		</div>                 
+                   <form method="POST">
                     <div class="alert alert-success d-none" role="alert" id="MobiliteFormBanner">
       </div>
-                        <div class="input-group">
+                    
+     <div class="input-group">
                           <div class="rs-select2 js-select-simple select--no-search">
                               <select name="ecole" id="ecole">
                                     <option selected value="">Ecole Partenaire</option>
@@ -48,8 +50,8 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-2 js-datepicker" type="text" placeholder="Année" name="annee" id="annee">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    <input type="text" placeholder="Année" name="annee" id="annee">
+                                   
                                 </div>
                             </div>
                             <div class="col-2">
@@ -61,7 +63,7 @@
                                             <option>SE</option>
                                             <option>autre</option>
                                         </select>
-                                        
+                                         <div class="select-dropdown"></div>
                                     </div>
                                 </div>
                             </div>
@@ -84,14 +86,12 @@
         </div>
     </div>
 
-    <!-- Jquery JS-->
+   <!-- Jquery JS-->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- Vendor JS-->
     <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
 
     <!-- Main JS-->
     <script src="js/global.js"></script>

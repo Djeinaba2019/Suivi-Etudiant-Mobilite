@@ -56,7 +56,7 @@ public class AffectationController {
 	@PostMapping(path = "/add")
 	public Affectation addAffectation(@Valid @RequestBody AffectationDto affectationDto) {
 		Affectation affectation = new Affectation();
-		affectation.setEtudiant(etudiantRepo.findByEMail(affectationDto.getEtudiant()).orElseThrow());
+		affectation.setEtudiant(etudiantRepo.findById(affectationDto.getEtudiant()).orElseThrow());
 		affectation.setMobilite(mobRepo.findById(affectationDto.getMobilite()).orElseThrow());
 		Affectation affectation1 = affectationRepository.save(affectation);
 		logger.debug("New Affectation1 created with id {} !", affectation1.getId());

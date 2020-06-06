@@ -67,9 +67,6 @@ public class MobiliteDto {
 		
 		
 		
-		
-		
-		
 		public MobiliteDto(@PastOrPresent Date annee,  @NotBlank String ecole,
 				@NotBlank String departement, String typeMobilite) {
 			super();

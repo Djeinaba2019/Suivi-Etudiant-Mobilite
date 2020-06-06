@@ -1,5 +1,5 @@
 const apiURL = location.origin + '/Suivi-Etudiants/';
-
+var matricule;
 
 function getAffectationJson() {
 	  var formData = {
@@ -26,30 +26,7 @@ $(document).ready(function()
 			console.log(data);
 			$.each(data, function (index, value) {
 			    // APPEND OR INSERT DATA TO SELECT ELEMENT.
-			    $('#etudiant').append('<option value="' + value.email + '">' + value.email + '</option>');
-			});
-		    
-		},
-		error : function (request, status, error) {
-		      console.log(request.responseText);
-		      console.log(error);
-		}
-	});
-	
-});
-
-$(document).ready(function() 
-		{
-	$.ajax({
-		type : "GET",
-		url : apiURL + 'mobilite/all',
-		cache:false,
-		dataType: "json",
-		success : function(data) {
-			console.log(data);
-			$.each(data, function (index, value) {
-			    // APPEND OR INSERT DATA TO SELECT ELEMENT.
-			    $('#mobilite').append('<option value="' + value.id + '">'+ value.ecoles.nom + "  ,  "+ value.typeMobilite + '</option>');
+			    $('#etudiant').append('<option value="' + value.matricule + '">' + value.matricule + '</option>');
 			});
 		    
 		},
@@ -89,5 +66,37 @@ $.ajax({
     
   
 });
+
+
+$(function()
+		{$('#etudiant').change(function(){
+			 matricule = $('#etudiant').val();	
+			
+					$.ajax({
+						type : "GET",
+						url : apiURL + 'choix/choix/'+matricule,
+						cache:false,
+						dataType: "json",
+						success : function(data) {
+							console.log(data);
+							$('#mobilite').empty();
+							$('#mobilite').append(' <option  selected value="">Mobilité</option>')
+							   $('#mobilite').append('<option value="' + data.mobilite1.id + '">'  +data.mobilite1.ecoles.nom +'  '+ data.mobilite1.typeMobilite+'</option>');
+							    $('#mobilite').append('<option value="' + data.mobilite2.id + '">' +data.mobilite2.ecoles.nom +'  '+ data.mobilite2.typeMobilite  + '</option>');
+							    $('#mobilite').append('<option value="' + data.mobilite3.id + '">' +data.mobilite3.ecoles.nom +'  '+ data.mobilite3.typeMobilite  + '</option>');
+
+						},
+						error : function (request, status, error) {
+						      console.log(request.responseText);
+						      console.log(error);
+						}
+					});
+					
+				});
+
+		});
+		
+	
+
 
 
