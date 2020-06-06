@@ -81,9 +81,9 @@ $(function()
 							console.log(data);
 							$('#mobilite').empty();
 							$('#mobilite').append(' <option  selected value="">Mobilité</option>')
-							   $('#mobilite').append('<option value="' + data.mobilite1.id + '">'  +data.mobilite1.ecoles.nom +'  '+ data.mobilite1.typeMobilite+'</option>');
-							    $('#mobilite').append('<option value="' + data.mobilite2.id + '">' +data.mobilite2.ecoles.nom +'  '+ data.mobilite2.typeMobilite  + '</option>');
-							    $('#mobilite').append('<option value="' + data.mobilite3.id + '">' +data.mobilite3.ecoles.nom +'  '+ data.mobilite3.typeMobilite  + '</option>');
+							    $('#mobilite').append('<option value="' + data.mobilite1.id + '"> Choix 1 ' +data.mobilite1.ecoles.nom +'  '+ data.mobilite1.typeMobilite+'</option>');
+							    $('#mobilite').append('<option value="' + data.mobilite2.id + '"> Choix 2 ' +data.mobilite2.ecoles.nom +'  '+ data.mobilite2.typeMobilite  + '</option>');
+							    $('#mobilite').append('<option value="' + data.mobilite3.id + '"> Choix 3 ' +data.mobilite3.ecoles.nom +'  '+ data.mobilite3.typeMobilite  + '</option>');
 
 						},
 						error : function (request, status, error) {
