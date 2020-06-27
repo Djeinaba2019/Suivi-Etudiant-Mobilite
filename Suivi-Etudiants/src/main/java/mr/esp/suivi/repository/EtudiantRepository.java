@@ -11,5 +11,7 @@ public interface EtudiantRepository  extends CrudRepository<Etudiant, Integer> {
 	
 	@Query("SELECT E FROM Etudiant E where E.email= ?1 ")
 	public Optional<Etudiant> findByEMail(String email);
+	
+	
 
 }

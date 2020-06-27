@@ -18,8 +18,6 @@ public class Role {
 	
 	private String nomRole;
 	
-	@OneToMany
-	List<User> user;
 
 	public Integer getId() {
 		return id;
@@ -37,23 +35,17 @@ public class Role {
 		this.nomRole = nomRole;
 	}
 
-	public List<User> getUser() {
-		return user;
-	}
-
-	public void setUser(List<User> user) {
-		this.user = user;
-	}
+	
 
 	public Role() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Role(String nomRole, List<User> user) {
+	public Role(String nomRole) {
 		super();
 		this.nomRole = nomRole;
-		this.user = user;
+		
 	} 
 	
 	

@@ -1,5 +1,6 @@
 package mr.esp.suivi.model;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 
 @Entity
@@ -20,14 +22,30 @@ public class User {
 	
 	private String Username;
 	
-	
+	@Email(message="donner un email correct")
 	private String email;
+	
 	
 	private String password;
 	
+	private boolean enabled;
 	
+	
+		
 	@OneToMany
-	List <Role> roles;
+	Collection<Role> roles;
+	
+	
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	
 
 	public Integer getUserId() {
 		return UserId;
@@ -61,11 +79,11 @@ public class User {
 		this.password = password;
 	}
 
-	public List<Role> getRoles() {
+	public Collection<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) {
+	public void setRoles(Collection<Role> roles) {
 		this.roles = roles;
 	}
 
@@ -74,11 +92,14 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User( String username, String email, String password, List<Role> roles) {
+
+	public User(String username, String email, String password, boolean enabled,
+			Collection<Role> roles) {
 		super();
-		Username = username;
+		this.Username = username;
 		this.email = email;
 		this.password = password;
+		this.enabled = enabled;
 		this.roles = roles;
 	}
 
