@@ -38,11 +38,36 @@ $("#doCreateButton").on("click", function(event) {
     contentType: "application/json",
     dataType: "json",
     success : function(msg) {   
-              $("#EcoleFormBanner").html('Data Submitted successfully');
-              $("#EcoleFormBanner").attr('class', 'alert alert-success');
-              setTimeout(function() { $("#EcoleFormBanner").addClass('d-none'); }, 10000);
               console.log(msg);
-            },
+              var fileSelect = document.getElementById("document");
+    	      if(fileSelect.files && fileSelect.files.length == 1){
+    	         var file = fileSelect.files[0];
+    	         var formData = new FormData();
+    	         formData.append("document", file);  
+    	         $.ajax({
+    		            url: apiURL + 'ecole/upload_file',
+    		            type: "POST",
+    		            data: formData,
+    		            enctype: 'multipart/form-data',
+    		            processData: false,
+    		            contentType: false,
+    		            cache: false,
+    		            success: function (res) {
+    		              $("#patientFormBanner").html('Data Submitted successfully');
+    		              $("#patientFormBanner").attr('class', 'alert alert-success');
+    		              setTimeout(function() { $("#patientFormBanner").addClass('d-none'); }, 10000);
+    		              console.log(msg);
+    		            },
+    		            error: function (request, status, error) {
+    		              $("#patientFormBanner").html('Error!');
+    		              $("#patientFormBanner").attr('class', 'alert alert-danger');
+    		              setTimeout(function() { $("#patientFormBanner").addClass('d-none'); }, 10000);
+    		              console.log(request.responseText);
+    		              console.log(error);
+    		            }
+    		         });
+            }
+    },
             error: function (request, status, error) {
               $("#EcoleFormBanner").html('Tout les champs sont obligatoires !');
               $("#EcoleFormBanner").attr('class', 'alert alert-danger');

@@ -27,7 +27,7 @@ function getDepartementJson() {
 	    contentType: "application/json",
 	    dataType: "json",
 	    success : function(msg) {
-	              $("#DepartementFormBanner").html('Data Submitted successfully');
+	              $("#DepartementFormBanner").html('un nouveau departement est cée');
 	              $("#DepartementBanner").attr('class', 'alert alert-success');
 	              setTimeout(function() { $("#DepartementBanner").addClass('d-none'); }, 10000);
 	              console.log(msg);
