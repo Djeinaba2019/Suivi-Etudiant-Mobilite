@@ -12,3 +12,6 @@ Le projet vise à développer une application web pour la gestion de la mobilit�
     - Génération d’un document des choix disponible par année suivant une Template ;
     - Retour d’expériences des nos élèves ;
     - importation des retour d’expériences ;
+
+![Sample Image](Suivi-Etudiants/src/main/resources/static/assets/img/esp-img1.png)
+
